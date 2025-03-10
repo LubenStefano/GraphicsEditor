@@ -38,7 +38,7 @@ This curse project is for FPMI-ISN TU SOFIA OOP, a Windows Forms application des
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/yourusername/GraphicsEditorApp.git
+    git clone https://github.com/LubenStefano/GraphicsEditorApp.git
     ```
 
 2. Open the solution file (`GraphicsEditorApp_OOP_course_project.sln`) in **Microsoft Visual Studio**.
@@ -63,8 +63,6 @@ Once the application is running, you will see a canvas where you can:
 - **Circle**: Adjust the radius and toggle between filled and outlined.
 - **Trapezoid**: You can adjust the bases and height of the trapezoid.
 
-## Key Concepts
-
 ### Object-Oriented Programming Principles
 
 1. **Inheritance**: The base class `Shape` provides common properties and methods like `Draw`, `CalculateArea`, and `EditSize`. Other shapes (like `Circle`, `Rectangle`, etc.) inherit from this class and override the methods to provide specific behavior.
@@ -74,21 +72,4 @@ Once the application is running, you will see a canvas where you can:
 3. **Polymorphism**: Shapes are handled polymorphically, meaning the application can perform the same operations (draw, resize, etc.) on different shapes without needing to know their specific type.
 
 4. **Virtual Methods**: Methods like `Draw` and `CalculateArea` are defined as virtual in the `Shape` class and overridden in derived classes (like `Circle`, `Rectangle`, etc.) to provide shape-specific behavior.
-
-### Event Handling
-
-The application uses events and delegates to handle user interactions (like clicking a shape to select or dragging a shape to move it).
-
-### Graphics Management
-
-- **Pen and Brush**: The drawing operations for shapes (like filling or outlining) are handled using `Pen` and `Brush` objects. These are disposed of properly when no longer needed, to avoid memory leaks.
-- **GDI+**: Graphics are drawn on the canvas using GDI+ methods for drawing shapes and filling them.
-
-## Contributing
-
-Feel free to fork the repository, make changes, and submit pull requests. You can contribute by:
-
-- Adding new shapes or editing existing shapes.
-- Improving the user interface.
-- Fixing bugs or improving the codebase.
 
