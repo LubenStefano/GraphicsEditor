@@ -16,7 +16,6 @@ This curse project is for FPMI-ISN TU SOFIA OOP, a Windows Forms application des
   - Changing the fill color
   - Switching between filled and outlined shapes
 - **Area Calculation**: The application supports automatic calculation of the area of each shape based on its size and properties.
-- **Event-Driven Interaction**: User interactions such as selecting, moving, and editing shapes trigger corresponding events.
 - **Object-Oriented Design**: The application leverages key OOP concepts such as:
   - **Inheritance**: Shapes inherit from a base `Shape` class.
   - **Encapsulation**: Shapes have encapsulated properties like position, size, and color.
@@ -28,7 +27,6 @@ This curse project is for FPMI-ISN TU SOFIA OOP, a Windows Forms application des
 - **C#**: Programming language used for the development.
 - **Windows Forms**: For creating the graphical user interface.
 - **Object-Oriented Programming (OOP)**: Inheritance, encapsulation, polymorphism, and other OOP principles are heavily utilized.
-- **GDI+**: For drawing shapes and handling graphical operations.
 
 ## Requirements
 
