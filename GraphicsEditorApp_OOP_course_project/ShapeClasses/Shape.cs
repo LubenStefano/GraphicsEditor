@@ -40,6 +40,7 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
             IsFilled = isFilled;
         }
 
+        //TODO: should be edited: abstract and convinient for all shapes(width and height)
         public virtual void EditSize(int width, int height){}
 
         public virtual void Move(int deltaX, int deltaY)
