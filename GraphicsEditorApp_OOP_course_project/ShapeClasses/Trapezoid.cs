@@ -44,13 +44,6 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
             return (Base1 + Base2) * Height / 2;
         }
 
-        public void EditSize(int base1, int base2, int height)
-        {
-            Base1 = base1;
-            Base2 = base2;
-            Height = height;
-        }
-
         public override void Move(int deltaX, int deltaY)
         {
             base.Move(deltaX, deltaY);

@@ -9,10 +9,10 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
 {
     public abstract class Shape
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public Color ShapeColor { get; set; } = Color.Black;
-        public bool IsFilled { get; set; }
+        protected int X { get; private set; }
+        protected int Y { get; private set; }
+        protected Color ShapeColor { get; set; } = Color.Black;
+        protected bool IsFilled { get; set; }
 
         public Shape(int x, int y, bool isFilled)
         {
@@ -39,9 +39,6 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
         {
             IsFilled = isFilled;
         }
-
-        //TODO: should be edited: abstract and convinient for all shapes(width and height)
-        public virtual void EditSize(int width, int height){}
 
         public virtual void Move(int deltaX, int deltaY)
         {

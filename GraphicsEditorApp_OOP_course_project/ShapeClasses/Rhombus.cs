@@ -42,12 +42,6 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
             return Side * Side * Math.Sin(Angle * Math.PI / 180);
         }
 
-        public override void EditSize(int side, int angle)
-        {
-            Side = side;
-            Angle = angle;
-        }
-
         public override void Move(int deltaX, int deltaY)
         {
             base.Move(deltaX, deltaY);

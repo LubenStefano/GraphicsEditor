@@ -31,11 +31,5 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
         {
             return Side * Side;
         }
-
-
-        public void EditSize(int side)
-        {
-            Side = side;
-        }
     }
 }

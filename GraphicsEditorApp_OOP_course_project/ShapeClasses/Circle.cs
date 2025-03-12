@@ -32,11 +32,6 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
             return Math.PI * Radius * Radius;
         }
 
-        public override void EditSize(int radius, int _)
-        {
-            Radius = radius;
-        }
-
         public override void Move(int deltaX, int deltaY)
         {
             base.Move(deltaX, deltaY);
