@@ -53,16 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditForm.cs">
+    <Compile Include="Forms\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditForm.Designer.cs">
+    <Compile Include="Forms\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -75,22 +75,22 @@
     <Compile Include="ShapeClasses\Square.cs" />
     <Compile Include="ShapeClasses\Trapezoid.cs" />
     <Compile Include="ShapeClasses\Triangle.cs" />
-    <Compile Include="ShapeInfoForm.cs">
+    <Compile Include="Forms\ShapeInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShapeInfoForm.Designer.cs">
+    <Compile Include="Forms\ShapeInfoForm.Designer.cs">
       <DependentUpon>ShapeInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShapesForm.cs">
+    <Compile Include="Forms\ShapesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShapesForm.Designer.cs">
+    <Compile Include="Forms\ShapesForm.Designer.cs">
       <DependentUpon>ShapesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="EditForm.resx">
+    <EmbeddedResource Include="Forms\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -103,10 +103,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ShapeInfoForm.resx">
+    <EmbeddedResource Include="Forms\ShapeInfoForm.resx">
       <DependentUpon>ShapeInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShapesForm.resx">
+    <EmbeddedResource Include="Forms\ShapesForm.resx">
       <DependentUpon>ShapesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
