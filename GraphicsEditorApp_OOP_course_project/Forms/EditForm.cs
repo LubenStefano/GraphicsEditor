@@ -104,7 +104,7 @@ namespace GraphicsEditorApp_OOP_course_project
         {
             XvalueTextBox.Text = _selectedShape.GetX().ToString();
             YvalueTextBox.Text = _selectedShape.GetY().ToString();
-            ShapeColorComboBox.SelectedItem = _selectedShape.GetColor();
+            ShapeColorComboBox.SelectedItem = _selectedShape.GetColor().Name;
             IsFilledCheckBox.Checked = _selectedShape.GetIsFilled();
 
             if (_selectedShape is Square square)

@@ -155,7 +155,7 @@
             this.colorTextBox.Location = new System.Drawing.Point(402, 271);
             this.colorTextBox.Name = "colorTextBox";
             this.colorTextBox.ReadOnly = true;
-            this.colorTextBox.Size = new System.Drawing.Size(111, 38);
+            this.colorTextBox.Size = new System.Drawing.Size(174, 38);
             this.colorTextBox.TabIndex = 25;
             // 
             // coordinatesTextBox
@@ -165,7 +165,7 @@
             this.coordinatesTextBox.Location = new System.Drawing.Point(402, 194);
             this.coordinatesTextBox.Name = "coordinatesTextBox";
             this.coordinatesTextBox.ReadOnly = true;
-            this.coordinatesTextBox.Size = new System.Drawing.Size(111, 38);
+            this.coordinatesTextBox.Size = new System.Drawing.Size(174, 38);
             this.coordinatesTextBox.TabIndex = 26;
             // 
             // areaTextBox
@@ -175,7 +175,7 @@
             this.areaTextBox.Location = new System.Drawing.Point(402, 132);
             this.areaTextBox.Name = "areaTextBox";
             this.areaTextBox.ReadOnly = true;
-            this.areaTextBox.Size = new System.Drawing.Size(111, 38);
+            this.areaTextBox.Size = new System.Drawing.Size(174, 38);
             this.areaTextBox.TabIndex = 27;
             // 
             // aTextBox
@@ -253,13 +253,16 @@
             // shapeTypeTextBox
             // 
             this.shapeTypeTextBox.BackColor = System.Drawing.Color.White;
+            this.shapeTypeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.shapeTypeTextBox.Enabled = false;
             this.shapeTypeTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shapeTypeTextBox.ForeColor = System.Drawing.Color.Black;
             this.shapeTypeTextBox.Location = new System.Drawing.Point(25, 42);
             this.shapeTypeTextBox.Name = "shapeTypeTextBox";
             this.shapeTypeTextBox.ReadOnly = true;
-            this.shapeTypeTextBox.Size = new System.Drawing.Size(162, 39);
+            this.shapeTypeTextBox.Size = new System.Drawing.Size(162, 32);
             this.shapeTypeTextBox.TabIndex = 34;
+            this.shapeTypeTextBox.TabStop = false;
             // 
             // ShapeInfoForm
             // 

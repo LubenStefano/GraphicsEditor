@@ -100,7 +100,8 @@ namespace GraphicsEditorApp_OOP_course_project
             colorLabel.Text = _selectedShape.GetColor().Name;
             filledColorCheckBox.Checked = _selectedShape.GetIsFilled();
             colorTextBox.Text = _selectedShape.GetColor().Name;
-            areaTextBox.Text = _selectedShape.CalculateArea().ToString();
+            areaTextBox.Text = _selectedShape.CalculateArea().ToString();  
+            shapeTypeTextBox.Text = _selectedShape.GetType().Name;
 
             if (_selectedShape is Square square)
             {
