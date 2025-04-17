@@ -18,7 +18,7 @@ namespace GraphicsEditorApp_OOP_course_project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new MainForm(null));
 
         }
 

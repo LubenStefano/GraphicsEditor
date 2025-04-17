@@ -14,8 +14,8 @@ namespace GraphicsEditorApp_OOP_course_project
     public partial class ShapeInfoForm: Form
     {
         private Shape _selectedShape;
-        private ShapesForm _shapesForm;
-        public ShapeInfoForm(Shape shape, ShapesForm shapesForm)
+        private MainForm _shapesForm;
+        public ShapeInfoForm(Shape shape, MainForm shapesForm)
         {
             InitializeComponent();
             _selectedShape = shape;
@@ -194,6 +194,11 @@ namespace GraphicsEditorApp_OOP_course_project
             EditForm editForm = new EditForm(_selectedShape, _shapesForm, this);
             editForm.ShowDialog();
 
+        }
+
+        public void RefreshShapePanel()
+        {
+            shapePanel.Invalidate(); // Trigger a repaint of the shapePanel
         }
     }
 }

@@ -13,273 +13,165 @@ namespace GraphicsEditorApp_OOP_course_project
 {
     public partial class MainForm : Form
     {
-        List<Shape> shapes = new List<Shape>(); 
-        public MainForm()
+        private List<Shape> _shapes;
+        private Shape _draggedShape = null;
+        private Point _dragStartPoint;
+        private Stack<List<Shape>> _undoStack = new Stack<List<Shape>>();
+        private Stack<List<Shape>> _redoStack = new Stack<List<Shape>>();
+
+        // Update constructor to attach the actual MouseDoubleClick event
+        public MainForm(List<Shape> shapes)
         {
             InitializeComponent();
+            _shapes = shapes ?? new List<Shape>(); // Initialize _shapes as an empty list if null
+            panel1.Paint += Panel1_Paint; // Attach Paint event handler to panel1
+            panel1.MouseDoubleClick += ShapesForm_MouseDoubleClick; // Attach MouseDoubleClick event handler to panel1
+            panel1.MouseDown += ShapesForm_MouseDown; // Attach MouseDown event handler to panel1
+            panel1.MouseMove += ShapesForm_MouseMove; // Attach MouseMove event handler to panel1
+            panel1.MouseUp += ShapesForm_MouseUp; // Attach MouseUp event handler to panel1
         }
 
-        private void shapeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ShapesForm_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            // Reset visibility of all labels and textboxes
-            xValueLabel.Visible = false;
-            xValueTextBox.Visible = false;
-            yValueLabel.Visible = false;
-            yValueTextBox.Visible = false;
-            shapeColorComboBox.Visible = false;
-            shapeColorLabel.Visible = false;
-            isFilledCheckBox.Visible = false;
-            isFilledLabel.Visible = false;
-            aLabel.Visible = false;
-            aTextBox.Visible = false;
-            bLabel.Visible = false;
-            bTextBox.Visible = false;
-            cLabel.Visible = false;
-            cTextBox.Visible = false;
+            if (_shapes == null) return; // Check if _shapes is null
 
-            // Clear all text boxes
-            clearTextboxFunc();
-
-            // Set visibility for common controls
-            xValueLabel.Visible = true;
-            xValueTextBox.Visible = true;
-            yValueLabel.Visible = true;
-            yValueTextBox.Visible = true;
-            shapeColorComboBox.Visible = true;
-            shapeColorLabel.Visible = true;
-            isFilledCheckBox.Visible = true;
-            isFilledLabel.Visible = true;
-
-            createButton.Visible = true;
-            progressBar1.Visible = true;
-
-            // Handle specific shape controls
-            switch (shapeComboBox.SelectedItem.ToString())
+            foreach (var shape in _shapes)
             {
-                case "Square":
-                    aLabel.Text = "Side:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    break;
-
-                case "Rectangle":
-                    aLabel.Text = "Width:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Height:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    break;
-                case "Parallelogram":
-                    aLabel.Text = "Width:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Height:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    cLabel.Text = "Angle:";
-                    cLabel.Visible = true;
-                    cTextBox.Visible = true;
-                    break;
-
-                case "Circle":
-                    aLabel.Text = "Radius:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    break;
-
-                case "Rhombus":
-                    aLabel.Text = "Side:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Angle:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    break;
-
-                case "Trapezoid":
-                    aLabel.Text = "Base 1:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Base 2:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    cLabel.Text = "Height:";
-                    cLabel.Visible = true;
-                    cTextBox.Visible = true;
-                    break;
-
-                case "Triangle":
-                    aLabel.Text = "Base:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Height:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    break;
-            }
-        }
-
-        private ShapesForm shapesForm; // Add a field to track the ShapesForm instance
-
-        private void createButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Initialize variables with default values
-                int a = 0, b = 0, c = 0;
-
-                // Validate numeric inputs
-                if (!int.TryParse(xValueTextBox.Text, out int x) || x < 0 ||
-                    !int.TryParse(yValueTextBox.Text, out int y) || y < 0 ||
-                    (aTextBox.Visible && (!int.TryParse(aTextBox.Text, out a) || a <= 0)) ||
-                    (bTextBox.Visible && (!int.TryParse(bTextBox.Text, out b) || b <= 0)) ||
-                    (cTextBox.Visible && (!int.TryParse(cTextBox.Text, out c) || c <= 0)))
+                if (shape.Contains(e.Location))
                 {
-                    MessageBox.Show("Please ensure all input values are valid numbers. 'x' and 'y' must be >= 0, and other values must be > 0.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                switch (shapeComboBox.SelectedItem.ToString())
-                {
-                    case "Square":
-                        shapes.Add(new Square(x, y, a, isFilledCheckBox.Checked, Color.FromName(shapeColorComboBox.SelectedItem.ToString())));
-                        break;
-                    case "Rectangle":
-                        shapes.Add(new ShapeClasses.Rectangle(x, y, a, b, isFilledCheckBox.Checked, Color.FromName(shapeColorComboBox.SelectedItem.ToString())));
-                        break;
-                    case "Circle":
-                        shapes.Add(new Circle(x, y, a, isFilledCheckBox.Checked, Color.FromName(shapeColorComboBox.SelectedItem.ToString())));
-                        break;
-                    case "Parallelogram":
-                        shapes.Add(new Parallelogram(x, y, a, b, c, isFilledCheckBox.Checked, Color.FromName(shapeColorComboBox.SelectedItem.ToString())));
-                        break;
-                    case "Rhombus":
-                        shapes.Add(new Rhombus(x, y, a, b, isFilledCheckBox.Checked, Color.FromName(shapeColorComboBox.SelectedItem.ToString())));
-                        break;
-                    case "Trapezoid":
-                        shapes.Add(new Trapezoid(x, y, a, b, c, isFilledCheckBox.Checked, Color.FromName(shapeColorComboBox.SelectedItem.ToString())));
-                        break;
-                    case "Triangle":
-                        shapes.Add(new Triangle(x, y, a, b, isFilledCheckBox.Checked, Color.FromName(shapeColorComboBox.SelectedItem.ToString())));
-                        break;
-                }
-
-                if (shapesForm == null || shapesForm.IsDisposed) // Check if the form is null or disposed
-                {
-                    shapesForm = new ShapesForm(shapes); // Create a new instance if needed
-                    shapesForm.Show();
-                }
-                else
-                {
-                    shapesForm.Refresh(); // Refresh the existing form to rerender shapes
-                }
-
-                clearTextboxFunc();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while creating the shape: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // Add a HashSet to track processed fields
-        // Update the HashSet to store Control objects instead of TextBox objects
-        private HashSet<Control> processedFields = new HashSet<Control>();
-
-        // Add a method to count the total number of visible input fields
-        private int GetTotalVisibleInputFields()
-        {
-            int count = 0;
-
-            // Check visibility of all relevant input fields
-            if (xValueTextBox.Visible) count++;
-            if (yValueTextBox.Visible) count++;
-            if (aTextBox.Visible) count++;
-            if (bTextBox.Visible) count++;
-            if (cTextBox.Visible) count++;
-            if (shapeColorComboBox.Visible) count++;
-
-            return count;
-        }
-
-        private void ValidateAndIncrementProgressBar(Control control, string fieldName, int minValue = 0)
-        {
-            // Check if the control is a TextBox and validate its value
-            if (control is TextBox textBox)
-            {
-                if (!int.TryParse(textBox.Text, out int value) || value < minValue)
-                {
-                    MessageBox.Show($"Please enter a valid number for {fieldName}. It must be >= {minValue}.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBox.Focus();
-                    return;
+                    ShapeInfoForm infoForm = new ShapeInfoForm(shape, this);
+                    infoForm.ShowDialog();
+                    break;
                 }
             }
+        }
 
-            // Check if the control has already been processed
-            if (!processedFields.Contains(control))
+        private void ShapesForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (_shapes == null) return; // Check if _shapes is null
+
+            foreach (var shape in _shapes)
             {
-                int totalFields = GetTotalVisibleInputFields();
-                if (totalFields > 0)
+                if (shape.Contains(e.Location))
                 {
-                    int increment = progressBar1.Maximum / totalFields;
-                    progressBar1.Value = Math.Min(progressBar1.Value + increment, progressBar1.Maximum);
+                    _draggedShape = shape;
+                    _dragStartPoint = e.Location;
+                    SaveStateForUndo(); // Save state for undo before starting to drag
+                    break;
                 }
-                processedFields.Add(control); // Mark the control as processed
             }
         }
 
-        private void shapeColorComboBox_Leave(object sender, EventArgs e)
+        private void ShapesForm_MouseMove(object sender, MouseEventArgs e)
         {
-            // Check if a valid color is selected
-            if (shapeColorComboBox.SelectedIndex >= 0)
+            if (_draggedShape != null && e.Button == MouseButtons.Left)
             {
-                ValidateAndIncrementProgressBar(shapeColorComboBox, "Shape Color");
+                int deltaX = e.Location.X - _dragStartPoint.X;
+                int deltaY = e.Location.Y - _dragStartPoint.Y;
+
+                _draggedShape.Move(deltaX, deltaY);
+                _dragStartPoint = e.Location;
+
+                RefreshShapes(); // Redraw the shapes
             }
-            else
+        }
+
+        private void ShapesForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (_draggedShape != null)
             {
-                MessageBox.Show("Please select a valid color for the shape.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                shapeColorComboBox.Focus(); // Return focus to the combo box for correction
+                _draggedShape = null; // Stop dragging
             }
         }
 
-        private void clearTextboxFunc()
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
-            xValueTextBox.Text = string.Empty;
-            yValueTextBox.Text = string.Empty;
-            aTextBox.Text = string.Empty;
-            bTextBox.Text = string.Empty;
-            cTextBox.Text = string.Empty;
-            shapeColorComboBox.SelectedIndex = -1; 
-            isFilledCheckBox.Checked = false; 
-            progressBar1.Value = 0; 
-            processedFields.Clear(); // Clear the processed fields
+            if (_shapes == null) return; // Check if _shapes is null
+
+            Graphics g = e.Graphics;
+
+            foreach (var shape in _shapes)
+            {
+                shape.Draw(g); // Call the Draw method for each shape
+            }
         }
 
-        // Update the event handlers to use the new ValidateAndIncrementProgressBar method
-        private void xValueTextBox_Leave(object sender, EventArgs e)
+        // ...existing code...
+
+        public void RefreshShapes()
         {
-            ValidateAndIncrementProgressBar(xValueTextBox, "X value", 0);
+            panel1.Invalidate(); // Trigger a repaint for panel1
         }
 
-        private void yValueTextBox_Leave(object sender, EventArgs e)
+        private void SaveStateForUndo()
         {
-            ValidateAndIncrementProgressBar(yValueTextBox, "Y value", 0);
+            if (_shapes == null) return; // Check if _shapes is null
+
+            // Save a deep copy of the current state of _shapes to the undo stack
+            _undoStack.Push(_shapes.Select(shape => shape.Clone()).ToList());
+            _redoStack.Clear(); // Clear redo stack whenever a new action is performed
         }
 
-        private void aTextBox_Leave(object sender, EventArgs e)
+        private void undoButton_Click(object sender, EventArgs e)
         {
-            ValidateAndIncrementProgressBar(aTextBox, "A value", 1);
+            if (_shapes == null || _undoStack.Count == 0) // Check if _shapes is null or undo stack is empty
+            {
+                MessageBox.Show("No actions to undo.", "Undo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Save the current state to the redo stack
+            _redoStack.Push(_shapes.Select(shape => shape.Clone()).ToList());
+
+            // Restore the last state from the undo stack
+            _shapes = _undoStack.Pop();
+
+            RefreshShapes(); // Redraw the shapes
         }
 
-        private void bTextBox_Leave(object sender, EventArgs e)
+        private void redoButton_Click(object sender, EventArgs e)
         {
-            ValidateAndIncrementProgressBar(bTextBox, "B value", 1);
+            if (_shapes == null || _redoStack.Count == 0) // Check if _shapes is null or redo stack is empty
+            {
+                MessageBox.Show("No actions to redo.", "Redo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Save the current state to the undo stack
+            _undoStack.Push(_shapes.Select(shape => shape.Clone()).ToList());
+
+            // Restore the last undone state from the redo stack
+            _shapes = _redoStack.Pop();
+
+            RefreshShapes(); // Redraw the shapes
         }
 
-        private void cTextBox_Leave(object sender, EventArgs e)
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            ValidateAndIncrementProgressBar(cTextBox, "C value", 1);
+            mousePositionInfo.Text = $"X: {e.X}, Y: {e.Y}";
         }
+
+        private void createShapeButton_Click(object sender, EventArgs e)
+        {
+            // Open the CreateForm and pass the current MainForm instance
+            using (var createForm = new CreateForm(this))
+            {
+                createForm.ShowDialog(); // Show the CreateForm as a dialog
+                RefreshShapes(); // Refresh the MainForm after the CreateForm is closed
+            }
+        }
+
+
+        public void AddShape(Shape shape)
+        {
+            if (_shapes == null)
+            {
+                _shapes = new List<Shape>(); // Initialize _shapes if null
+            }
+            _shapes.Add(shape); // Add the new shape to the list
+            RefreshShapes(); // Refresh the UI to display the new shape
+        }
+
+        // ...existing code...
     }
 }

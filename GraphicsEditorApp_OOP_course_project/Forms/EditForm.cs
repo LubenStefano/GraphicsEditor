@@ -9,10 +9,10 @@ namespace GraphicsEditorApp_OOP_course_project
     public partial class EditForm : Form
     {
         private Shape _selectedShape;
-        private ShapesForm _shapesForm;
+        private MainForm _shapesForm;
         private ShapeInfoForm _shapeInfoForm;
 
-        public EditForm(Shape selectedShape, ShapesForm shapesForm, ShapeInfoForm shapeInfoForm)
+        public EditForm(Shape selectedShape, MainForm shapesForm, ShapeInfoForm shapeInfoForm)
         {
             InitializeComponent();
             _selectedShape = selectedShape;
@@ -198,12 +198,12 @@ namespace GraphicsEditorApp_OOP_course_project
                 // Ensure ShapesForm is refreshed
                 if (_shapesForm != null)
                 {
-                    _shapesForm.Invalidate(); // Trigger a repaint of ShapesForm
+                    _shapesForm.RefreshShapes(); // Trigger a repaint of panel1
                 }
                 if (_shapeInfoForm != null)
                 {
-                    _shapeInfoForm.Refresh(); // Refresh the ShapeInfoForm
-                    _shapeInfoForm.PopulateFields();
+                    _shapeInfoForm.PopulateFields(); // Refresh the ShapeInfoForm fields
+                    _shapeInfoForm.RefreshShapePanel(); // Trigger a repaint of the shapePanel
                 }
 
                 this.DialogResult = DialogResult.OK; // Indicate successful edit
