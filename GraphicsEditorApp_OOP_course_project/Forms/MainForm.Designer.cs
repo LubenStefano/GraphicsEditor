@@ -42,6 +42,7 @@
             this.colorPictureBox = new System.Windows.Forms.PictureBox();
             this.selectButton = new System.Windows.Forms.Button();
             this.eraseButton = new System.Windows.Forms.Button();
+            this.fillButton = new System.Windows.Forms.Button();
             this.infoStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.colorPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +107,7 @@
             // createShapeButton
             // 
             this.createShapeButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createShapeButton.Location = new System.Drawing.Point(659, 9);
+            this.createShapeButton.Location = new System.Drawing.Point(649, 9);
             this.createShapeButton.Name = "createShapeButton";
             this.createShapeButton.Size = new System.Drawing.Size(145, 38);
             this.createShapeButton.TabIndex = 6;
@@ -126,7 +127,7 @@
             // 
             // brushButton
             // 
-            this.brushButton.Location = new System.Drawing.Point(467, 9);
+            this.brushButton.Location = new System.Drawing.Point(425, 10);
             this.brushButton.Name = "brushButton";
             this.brushButton.Size = new System.Drawing.Size(36, 38);
             this.brushButton.TabIndex = 8;
@@ -136,7 +137,7 @@
             // 
             // penButton
             // 
-            this.penButton.Location = new System.Drawing.Point(425, 9);
+            this.penButton.Location = new System.Drawing.Point(383, 10);
             this.penButton.Name = "penButton";
             this.penButton.Size = new System.Drawing.Size(36, 38);
             this.penButton.TabIndex = 9;
@@ -147,16 +148,17 @@
             // colorPictureBox
             // 
             this.colorPictureBox.BackColor = System.Drawing.Color.Black;
-            this.colorPictureBox.Location = new System.Drawing.Point(551, 12);
+            this.colorPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.colorPictureBox.Location = new System.Drawing.Point(551, 19);
             this.colorPictureBox.Name = "colorPictureBox";
-            this.colorPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.colorPictureBox.Size = new System.Drawing.Size(23, 23);
             this.colorPictureBox.TabIndex = 10;
             this.colorPictureBox.TabStop = false;
             // 
             // selectButton
             // 
             this.selectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectButton.Location = new System.Drawing.Point(341, 9);
+            this.selectButton.Location = new System.Drawing.Point(299, 10);
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(36, 38);
             this.selectButton.TabIndex = 11;
@@ -167,7 +169,7 @@
             // 
             // eraseButton
             // 
-            this.eraseButton.Location = new System.Drawing.Point(383, 9);
+            this.eraseButton.Location = new System.Drawing.Point(341, 10);
             this.eraseButton.Name = "eraseButton";
             this.eraseButton.Size = new System.Drawing.Size(36, 38);
             this.eraseButton.TabIndex = 12;
@@ -175,12 +177,25 @@
             this.eraseButton.UseVisualStyleBackColor = true;
             this.eraseButton.Click += new System.EventHandler(this.eraserButton_Click);
             // 
+            // fillButton
+            // 
+            this.fillButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fillButton.Location = new System.Drawing.Point(467, 9);
+            this.fillButton.Name = "fillButton";
+            this.fillButton.Size = new System.Drawing.Size(36, 38);
+            this.fillButton.TabIndex = 13;
+            this.fillButton.Text = "🪣";
+            this.fillButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.fillButton.UseVisualStyleBackColor = true;
+            this.fillButton.Click += new System.EventHandler(this.fillButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1008, 585);
+            this.Controls.Add(this.fillButton);
             this.Controls.Add(this.eraseButton);
             this.Controls.Add(this.selectButton);
             this.Controls.Add(this.colorPictureBox);
@@ -222,5 +237,6 @@
         private System.Windows.Forms.PictureBox colorPictureBox;
         private System.Windows.Forms.Button selectButton;
         private System.Windows.Forms.Button eraseButton;
+        private System.Windows.Forms.Button fillButton;
     }
 }

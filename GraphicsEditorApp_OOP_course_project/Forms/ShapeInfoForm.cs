@@ -200,5 +200,20 @@ namespace GraphicsEditorApp_OOP_course_project
         {
             shapePanel.Invalidate(); // Trigger a repaint of the shapePanel
         }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (_selectedShape != null)
+            {
+                // Remove the selected shape from the MainForm's shapes list
+                _shapesForm._shapes.Remove(_selectedShape);
+
+                // Refresh the MainForm to reflect the changes
+                _shapesForm.RefreshShapes();
+
+                // Close the ShapeInfoForm
+                this.Close();
+            }
+        }
     }
 }

@@ -48,6 +48,7 @@
             this.bLabel = new System.Windows.Forms.Label();
             this.cLabel = new System.Windows.Forms.Label();
             this.shapeTypeTextBox = new System.Windows.Forms.TextBox();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // shapePanel
@@ -264,12 +265,24 @@
             this.shapeTypeTextBox.TabIndex = 34;
             this.shapeTypeTextBox.TabStop = false;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.deleteButton.Location = new System.Drawing.Point(493, 480);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(243, 51);
+            this.deleteButton.TabIndex = 35;
+            this.deleteButton.Text = "Delete Shape";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // ShapeInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(923, 547);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.shapeTypeTextBox);
             this.Controls.Add(this.cLabel);
             this.Controls.Add(this.bLabel);
@@ -321,5 +334,6 @@
         private System.Windows.Forms.Label bLabel;
         private System.Windows.Forms.Label cLabel;
         private System.Windows.Forms.TextBox shapeTypeTextBox;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

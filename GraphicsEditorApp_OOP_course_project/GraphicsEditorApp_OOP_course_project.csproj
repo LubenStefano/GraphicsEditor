@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShapeClasses\BitmapShape.cs" />
     <Compile Include="ShapeClasses\Circle.cs" />
     <Compile Include="ShapeClasses\Parallelogram.cs" />
     <Compile Include="ShapeClasses\Rectangle.cs" />
