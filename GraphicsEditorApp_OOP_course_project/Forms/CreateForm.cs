@@ -287,5 +287,6 @@ namespace GraphicsEditorApp_OOP_course_project
         {
             ValidateAndIncrementProgressBar(cTextBox, "C value", 1);
         }
+
     }
 }
