@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using GraphicsEditorApp_OOP_course_project.Services;
 using GraphicsEditorApp_OOP_course_project.ShapeClasses;
 
 
@@ -489,6 +490,118 @@ namespace GraphicsEditorApp_OOP_course_project
                 pixels.Push(new Point(current.X, current.Y + 1));
                 pixels.Push(new Point(current.X, current.Y - 1));
             }
+        }
+
+        private void toolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (toolsToolStripMenuItem.Checked)
+            {
+                toolsToolStripMenuItem.Checked = false;
+                toolsPanel.Visible = false;
+            }
+            else
+            {
+                toolsToolStripMenuItem.Checked = true;
+                toolsPanel.Visible = true;
+            }
+
+        }
+
+        private void statusBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (statusBarToolStripMenuItem.Checked)
+            {
+                statusBarToolStripMenuItem.Checked = false;
+                infoStatusStrip.Visible = false;
+            }
+            else
+            {
+                statusBarToolStripMenuItem.Checked = true;
+                infoStatusStrip.Visible = true;
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "JSON Files (*.json)|*.json|All Files (*.*)|*.*";
+                saveFileDialog.DefaultExt = "json";
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.Title = "Save Shapes";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        ShapeSerializer.SaveToFile(saveFileDialog.FileName, _shapes);
+                        MessageBox.Show("Shapes saved successfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to save shapes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Show a confirmation dialog
+            var result = MessageBox.Show(
+                "Are you sure you want to make a new canvas? Would you like to save this one's data?",
+                "New Canvas",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                // Save the current shapes
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "JSON Files (*.json)|*.json|All Files (*.*)|*.*";
+                    saveFileDialog.DefaultExt = "json";
+                    saveFileDialog.AddExtension = true;
+                    saveFileDialog.Title = "Save Shapes";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            ShapeSerializer.SaveToFile(saveFileDialog.FileName, _shapes);
+                            MessageBox.Show("Shapes saved successfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Failed to save shapes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return; // Abort creating a new canvas if saving fails
+                        }
+                    }
+                    else
+                    {
+                        return; // Abort creating a new canvas if the user cancels saving
+                    }
+                }
+            }
+            else if (result == DialogResult.No)
+            {
+                // Proceed to create a new canvas without saving
+            }
+            else
+            {
+                // Cancel the operation
+                return;
+            }
+
+            // Clear the shapes list
+            _shapes = new List<Shape>();
+
+            // Reset the drawing bitmap
+            _drawingBitmap = new Bitmap(panel1.Width, panel1.Height);
+
+            // Trigger a UI refresh to reflect the cleared state
+            RefreshShapes();
         }
     }
 }

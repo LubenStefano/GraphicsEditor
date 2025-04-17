@@ -43,15 +43,27 @@
             this.selectButton = new System.Windows.Forms.Button();
             this.eraseButton = new System.Windows.Forms.Button();
             this.fillButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsPanel = new System.Windows.Forms.Panel();
+            this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.colorPictureBox)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            this.toolsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // createShapeLabel
             // 
             this.createShapeLabel.AutoSize = true;
             this.createShapeLabel.Font = new System.Drawing.Font("Yu Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createShapeLabel.Location = new System.Drawing.Point(15, 9);
+            this.createShapeLabel.Location = new System.Drawing.Point(14, 38);
             this.createShapeLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.createShapeLabel.Name = "createShapeLabel";
             this.createShapeLabel.Size = new System.Drawing.Size(116, 38);
@@ -61,7 +73,7 @@
             // undoButton
             // 
             this.undoButton.Font = new System.Drawing.Font("Yu Gothic UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.undoButton.Location = new System.Drawing.Point(854, 9);
+            this.undoButton.Location = new System.Drawing.Point(624, 0);
             this.undoButton.Name = "undoButton";
             this.undoButton.Size = new System.Drawing.Size(68, 38);
             this.undoButton.TabIndex = 2;
@@ -72,7 +84,7 @@
             // redoButton
             // 
             this.redoButton.Font = new System.Drawing.Font("Yu Gothic UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.redoButton.Location = new System.Drawing.Point(928, 9);
+            this.redoButton.Location = new System.Drawing.Point(698, 0);
             this.redoButton.Name = "redoButton";
             this.redoButton.Size = new System.Drawing.Size(68, 38);
             this.redoButton.TabIndex = 3;
@@ -83,7 +95,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(12, 58);
+            this.panel1.Location = new System.Drawing.Point(11, 87);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(984, 486);
             this.panel1.TabIndex = 4;
@@ -93,7 +105,7 @@
             // 
             this.infoStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mousePositionInfo});
-            this.infoStatusStrip.Location = new System.Drawing.Point(0, 563);
+            this.infoStatusStrip.Location = new System.Drawing.Point(0, 583);
             this.infoStatusStrip.Name = "infoStatusStrip";
             this.infoStatusStrip.Size = new System.Drawing.Size(1008, 22);
             this.infoStatusStrip.TabIndex = 5;
@@ -107,7 +119,7 @@
             // createShapeButton
             // 
             this.createShapeButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createShapeButton.Location = new System.Drawing.Point(649, 9);
+            this.createShapeButton.Location = new System.Drawing.Point(419, 0);
             this.createShapeButton.Name = "createShapeButton";
             this.createShapeButton.Size = new System.Drawing.Size(145, 38);
             this.createShapeButton.TabIndex = 6;
@@ -117,7 +129,7 @@
             // 
             // colorButton
             // 
-            this.colorButton.Location = new System.Drawing.Point(509, 9);
+            this.colorButton.Location = new System.Drawing.Point(261, 1);
             this.colorButton.Name = "colorButton";
             this.colorButton.Size = new System.Drawing.Size(36, 38);
             this.colorButton.TabIndex = 7;
@@ -127,7 +139,7 @@
             // 
             // brushButton
             // 
-            this.brushButton.Location = new System.Drawing.Point(425, 10);
+            this.brushButton.Location = new System.Drawing.Point(177, 1);
             this.brushButton.Name = "brushButton";
             this.brushButton.Size = new System.Drawing.Size(36, 38);
             this.brushButton.TabIndex = 8;
@@ -137,7 +149,7 @@
             // 
             // penButton
             // 
-            this.penButton.Location = new System.Drawing.Point(383, 10);
+            this.penButton.Location = new System.Drawing.Point(135, 1);
             this.penButton.Name = "penButton";
             this.penButton.Size = new System.Drawing.Size(36, 38);
             this.penButton.TabIndex = 9;
@@ -149,7 +161,7 @@
             // 
             this.colorPictureBox.BackColor = System.Drawing.Color.Black;
             this.colorPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.colorPictureBox.Location = new System.Drawing.Point(551, 19);
+            this.colorPictureBox.Location = new System.Drawing.Point(303, 11);
             this.colorPictureBox.Name = "colorPictureBox";
             this.colorPictureBox.Size = new System.Drawing.Size(23, 23);
             this.colorPictureBox.TabIndex = 10;
@@ -158,7 +170,7 @@
             // selectButton
             // 
             this.selectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectButton.Location = new System.Drawing.Point(299, 10);
+            this.selectButton.Location = new System.Drawing.Point(51, 1);
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(36, 38);
             this.selectButton.TabIndex = 11;
@@ -169,7 +181,7 @@
             // 
             // eraseButton
             // 
-            this.eraseButton.Location = new System.Drawing.Point(341, 10);
+            this.eraseButton.Location = new System.Drawing.Point(93, 1);
             this.eraseButton.Name = "eraseButton";
             this.eraseButton.Size = new System.Drawing.Size(36, 38);
             this.eraseButton.TabIndex = 12;
@@ -180,7 +192,7 @@
             // fillButton
             // 
             this.fillButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fillButton.Location = new System.Drawing.Point(467, 9);
+            this.fillButton.Location = new System.Drawing.Point(219, 1);
             this.fillButton.Name = "fillButton";
             this.fillButton.Size = new System.Drawing.Size(36, 38);
             this.fillButton.TabIndex = 13;
@@ -189,27 +201,115 @@
             this.fillButton.UseVisualStyleBackColor = true;
             this.fillButton.Click += new System.EventHandler(this.fillButton_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.menuStrip1.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.statisticsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 29);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsToolStripMenuItem,
+            this.statusBarToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(56, 25);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.Checked = true;
+            this.toolsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            this.toolsToolStripMenuItem.Click += new System.EventHandler(this.toolsToolStripMenuItem_Click);
+            // 
+            // statisticsToolStripMenuItem
+            // 
+            this.statisticsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openStatisticsToolStripMenuItem});
+            this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
+            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(83, 25);
+            this.statisticsToolStripMenuItem.Text = "Statistics";
+            // 
+            // openStatisticsToolStripMenuItem
+            // 
+            this.openStatisticsToolStripMenuItem.Name = "openStatisticsToolStripMenuItem";
+            this.openStatisticsToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
+            this.openStatisticsToolStripMenuItem.Text = "Open Statistics";
+            // 
+            // toolsPanel
+            // 
+            this.toolsPanel.Controls.Add(this.redoButton);
+            this.toolsPanel.Controls.Add(this.selectButton);
+            this.toolsPanel.Controls.Add(this.eraseButton);
+            this.toolsPanel.Controls.Add(this.fillButton);
+            this.toolsPanel.Controls.Add(this.colorPictureBox);
+            this.toolsPanel.Controls.Add(this.penButton);
+            this.toolsPanel.Controls.Add(this.colorButton);
+            this.toolsPanel.Controls.Add(this.brushButton);
+            this.toolsPanel.Controls.Add(this.createShapeButton);
+            this.toolsPanel.Controls.Add(this.undoButton);
+            this.toolsPanel.Location = new System.Drawing.Point(226, 34);
+            this.toolsPanel.Name = "toolsPanel";
+            this.toolsPanel.Size = new System.Drawing.Size(769, 42);
+            this.toolsPanel.TabIndex = 15;
+            // 
+            // statusBarToolStripMenuItem
+            // 
+            this.statusBarToolStripMenuItem.Checked = true;
+            this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.statusBarToolStripMenuItem.Text = "Status Bar";
+            this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.statusBarToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1008, 585);
-            this.Controls.Add(this.fillButton);
-            this.Controls.Add(this.eraseButton);
-            this.Controls.Add(this.selectButton);
-            this.Controls.Add(this.colorPictureBox);
-            this.Controls.Add(this.penButton);
-            this.Controls.Add(this.brushButton);
-            this.Controls.Add(this.colorButton);
-            this.Controls.Add(this.createShapeButton);
-            this.Controls.Add(this.undoButton);
+            this.ClientSize = new System.Drawing.Size(1008, 605);
+            this.Controls.Add(this.toolsPanel);
             this.Controls.Add(this.infoStatusStrip);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.redoButton);
             this.Controls.Add(this.createShapeLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -217,6 +317,9 @@
             this.infoStatusStrip.ResumeLayout(false);
             this.infoStatusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.colorPictureBox)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.toolsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +341,15 @@
         private System.Windows.Forms.Button selectButton;
         private System.Windows.Forms.Button eraseButton;
         private System.Windows.Forms.Button fillButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statisticsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openStatisticsToolStripMenuItem;
+        private System.Windows.Forms.Panel toolsPanel;
+        private System.Windows.Forms.ToolStripMenuItem statusBarToolStripMenuItem;
     }
 }
