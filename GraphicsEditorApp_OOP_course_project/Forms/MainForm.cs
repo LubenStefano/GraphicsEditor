@@ -521,31 +521,6 @@ namespace GraphicsEditorApp_OOP_course_project
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "JSON Files (*.json)|*.json|All Files (*.*)|*.*";
-                saveFileDialog.DefaultExt = "json";
-                saveFileDialog.AddExtension = true;
-                saveFileDialog.Title = "Save Shapes";
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        ShapeSerializer.SaveToFile(saveFileDialog.FileName, _shapes);
-                        MessageBox.Show("Shapes saved successfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //_drawingBitmap.Save(saveFileDialog.FileName + ".png", System.Drawing.Imaging.ImageFormat.Png); should add all shapes to the bitmap and background color
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Failed to save shapes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
-
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Show a confirmation dialog
@@ -609,6 +584,75 @@ namespace GraphicsEditorApp_OOP_course_project
         {
             ShapesStatisticsForm statisticsForm = new ShapesStatisticsForm(_shapes);
             statisticsForm.ShowDialog();
+        }
+
+        private void saveAsJSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "JSON Files (*.json)|*.json|All Files (*.*)|*.*";
+                saveFileDialog.DefaultExt = "json";
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.Title = "Save Shapes";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        ShapeSerializer.SaveToFile(saveFileDialog.FileName, _shapes);
+                        MessageBox.Show("Shapes saved successfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //_drawingBitmap.Save(saveFileDialog.FileName + ".png", System.Drawing.Imaging.ImageFormat.Png); should add all shapes to the bitmap and background color
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to save shapes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PNG Files (*.png)|*.png|JPEG Files (*.jpg)|*.jpg|Bitmap Files (*.bmp)|*.bmp";
+                saveFileDialog.DefaultExt = "png";
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.Title = "Save Panel as Image";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Create a new bitmap with the size of the panel
+                        Bitmap panelBitmap = new Bitmap(panel1.Width, panel1.Height);
+
+                        // Draw the current bitmap and shapes onto the new bitmap
+                        using (Graphics g = Graphics.FromImage(panelBitmap))
+                        {
+                            // Draw the existing bitmap
+                            g.DrawImage(_drawingBitmap, Point.Empty);
+
+                            // Draw all shapes
+                            if (_shapes != null)
+                            {
+                                foreach (var shape in _shapes)
+                                {
+                                    shape.Draw(g);
+                                }
+                            }
+                        }
+
+                        // Save the bitmap to the specified file
+                        panelBitmap.Save(saveFileDialog.FileName);
+                        MessageBox.Show("Image saved successfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to save image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

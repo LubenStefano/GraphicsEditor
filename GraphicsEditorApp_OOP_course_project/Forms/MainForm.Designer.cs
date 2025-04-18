@@ -53,6 +53,8 @@
             this.openStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsPanel = new System.Windows.Forms.Panel();
             this.colorPictureBox = new System.Windows.Forms.PictureBox();
+            this.saveAsJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoStatusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolsPanel.SuspendLayout();
@@ -217,16 +219,18 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
+            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveAsJSONToolStripMenuItem,
+            this.saveAsToolStripMenuItem});
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -242,7 +246,7 @@
             this.toolsToolStripMenuItem.Checked = true;
             this.toolsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.toolsToolStripMenuItem.Text = "Tools";
             this.toolsToolStripMenuItem.Click += new System.EventHandler(this.toolsToolStripMenuItem_Click);
             // 
@@ -251,7 +255,7 @@
             this.statusBarToolStripMenuItem.Checked = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.statusBarToolStripMenuItem.Text = "Status Bar";
             this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.statusBarToolStripMenuItem_Click);
             // 
@@ -296,6 +300,20 @@
             this.colorPictureBox.Size = new System.Drawing.Size(23, 23);
             this.colorPictureBox.TabIndex = 10;
             this.colorPictureBox.TabStop = false;
+            // 
+            // saveAsJSONToolStripMenuItem
+            // 
+            this.saveAsJSONToolStripMenuItem.Name = "saveAsJSONToolStripMenuItem";
+            this.saveAsJSONToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
+            this.saveAsJSONToolStripMenuItem.Text = "Save as JSON";
+            this.saveAsJSONToolStripMenuItem.Click += new System.EventHandler(this.saveAsJSONToolStripMenuItem_Click);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
+            this.saveAsToolStripMenuItem.Text = "Save as IMAGE";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -352,5 +370,7 @@
         private System.Windows.Forms.ToolStripMenuItem openStatisticsToolStripMenuItem;
         private System.Windows.Forms.Panel toolsPanel;
         private System.Windows.Forms.ToolStripMenuItem statusBarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsJSONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
     }
 }
