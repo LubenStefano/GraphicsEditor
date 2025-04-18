@@ -525,59 +525,24 @@ namespace GraphicsEditorApp_OOP_course_project
         {
             // Show a confirmation dialog
             var result = MessageBox.Show(
-                "Are you sure you want to make a new canvas? Would you like to save this one's data?",
+                "Are you sure you want to open a new canvas? You will lose the current data.",
                 "New Canvas",
-                MessageBoxButtons.YesNoCancel,
-                MessageBoxIcon.Question
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
             );
 
             if (result == DialogResult.Yes)
             {
-                // Save the current shapes
-                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-                {
-                    saveFileDialog.Filter = "JSON Files (*.json)|*.json|All Files (*.*)|*.*";
-                    saveFileDialog.DefaultExt = "json";
-                    saveFileDialog.AddExtension = true;
-                    saveFileDialog.Title = "Save Shapes";
+                // Clear the shapes list
+                _shapes = new List<Shape>();
 
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        try
-                        {
-                            ShapeSerializer.SaveToFile(saveFileDialog.FileName, _shapes);
-                            MessageBox.Show("Shapes saved successfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show($"Failed to save shapes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return; // Abort creating a new canvas if saving fails
-                        }
-                    }
-                    else
-                    {
-                        return; // Abort creating a new canvas if the user cancels saving
-                    }
-                }
+                // Reset the drawing bitmap
+                _drawingBitmap = new Bitmap(panel1.Width, panel1.Height);
+
+                // Trigger a UI refresh to reflect the cleared state
+                RefreshShapes();
             }
-            else if (result == DialogResult.No)
-            {
-                // Proceed to create a new canvas without saving
-            }
-            else
-            {
-                // Cancel the operation
-                return;
-            }
-
-            // Clear the shapes list
-            _shapes = new List<Shape>();
-
-            // Reset the drawing bitmap
-            _drawingBitmap = new Bitmap(panel1.Width, panel1.Height);
-
-            // Trigger a UI refresh to reflect the cleared state
-            RefreshShapes();
+            // If "No" is selected, do nothing and retain the current canvas
         }
 
         private void openStatisticsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -650,6 +615,67 @@ namespace GraphicsEditorApp_OOP_course_project
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Failed to save image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void openJSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "JSON Files (*.json)|*.json|All Files (*.*)|*.*";
+                openFileDialog.DefaultExt = "json";
+                openFileDialog.Title = "Open Shapes from JSON";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Load shapes from the selected file
+                        List<Shape> loadedShapes = ShapeSerializer.LoadFromFile(openFileDialog.FileName);
+
+                        // Update the _shapes list with the loaded shapes
+                        _shapes = loadedShapes;
+
+                        // Refresh the UI to display the loaded shapes
+                        RefreshShapes();
+
+                        MessageBox.Show("Shapes loaded successfully.", "Open", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to load shapes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void openImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files (*.png;*.jpg;*.bmp)|*.png;*.jpg;*.bmp|All Files (*.*)|*.*";
+                openFileDialog.Title = "Open Image";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Load the selected image into the _drawingBitmap
+                        Bitmap loadedImage = new Bitmap(openFileDialog.FileName);
+
+                        // Resize the bitmap to fit the panel if necessary
+                        _drawingBitmap = new Bitmap(loadedImage, panel1.Width, panel1.Height);
+
+                        // Refresh the panel to display the loaded image
+                        RefreshShapes();
+
+                        MessageBox.Show("Image loaded successfully.", "Open Image", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to load image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

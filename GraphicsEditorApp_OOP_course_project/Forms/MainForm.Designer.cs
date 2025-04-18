@@ -46,6 +46,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,8 +55,9 @@
             this.openStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsPanel = new System.Windows.Forms.Panel();
             this.colorPictureBox = new System.Windows.Forms.PictureBox();
-            this.saveAsJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoStatusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolsPanel.SuspendLayout();
@@ -211,7 +214,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
-            this.saveToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.openToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
             this.fileToolStripMenuItem.Text = "File";
@@ -231,6 +235,20 @@
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // saveAsJSONToolStripMenuItem
+            // 
+            this.saveAsJSONToolStripMenuItem.Name = "saveAsJSONToolStripMenuItem";
+            this.saveAsJSONToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
+            this.saveAsJSONToolStripMenuItem.Text = "Save as JSON";
+            this.saveAsJSONToolStripMenuItem.Click += new System.EventHandler(this.saveAsJSONToolStripMenuItem_Click);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
+            this.saveAsToolStripMenuItem.Text = "Save as IMAGE";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -301,19 +319,28 @@
             this.colorPictureBox.TabIndex = 10;
             this.colorPictureBox.TabStop = false;
             // 
-            // saveAsJSONToolStripMenuItem
+            // openToolStripMenuItem
             // 
-            this.saveAsJSONToolStripMenuItem.Name = "saveAsJSONToolStripMenuItem";
-            this.saveAsJSONToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
-            this.saveAsJSONToolStripMenuItem.Text = "Save as JSON";
-            this.saveAsJSONToolStripMenuItem.Click += new System.EventHandler(this.saveAsJSONToolStripMenuItem_Click);
+            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openJSONToolStripMenuItem,
+            this.openImageToolStripMenuItem});
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.openToolStripMenuItem.Text = "Open";
             // 
-            // saveAsToolStripMenuItem
+            // openJSONToolStripMenuItem
             // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
-            this.saveAsToolStripMenuItem.Text = "Save as IMAGE";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            this.openJSONToolStripMenuItem.Name = "openJSONToolStripMenuItem";
+            this.openJSONToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.openJSONToolStripMenuItem.Text = "Open JSON";
+            this.openJSONToolStripMenuItem.Click += new System.EventHandler(this.openJSONToolStripMenuItem_Click);
+            // 
+            // openImageToolStripMenuItem
+            // 
+            this.openImageToolStripMenuItem.Name = "openImageToolStripMenuItem";
+            this.openImageToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.openImageToolStripMenuItem.Text = "Open Image (png)";
+            this.openImageToolStripMenuItem.Click += new System.EventHandler(this.openImageToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -372,5 +399,8 @@
         private System.Windows.Forms.ToolStripMenuItem statusBarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsJSONToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openJSONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openImageToolStripMenuItem;
     }
 }
