@@ -21,7 +21,7 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
             Point[] points = new Point[3];
             points[0] = new Point(X, Y);
             points[1] = new Point(X + Base, Y);
-            points[2] = new Point(X + Base / 2, Y + Height);
+            points[2] = new Point(X + Base / 2, Y - Height);
 
             if (IsFilled)
             {
@@ -48,7 +48,7 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
         {
             Point p1 = new Point(X, Y);
             Point p2 = new Point(X + Base, Y);
-            Point p3 = new Point(X + Base / 2, Y + Height);
+            Point p3 = new Point(X + Base / 2, Y - Height);
 
             float area = Math.Abs((p1.X * (p2.Y - p3.Y) + p2.X * (p3.Y - p1.Y) + p3.X * (p1.Y - p2.Y)) / 2.0f);
             float area1 = Math.Abs((point.X * (p2.Y - p3.Y) + p2.X * (p3.Y - point.Y) + p3.X * (point.Y - p2.Y)) / 2.0f);

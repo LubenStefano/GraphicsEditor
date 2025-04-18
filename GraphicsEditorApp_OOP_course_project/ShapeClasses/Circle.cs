@@ -33,7 +33,7 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
         public override double CalculateArea()
         {
             double area = Constants.Pi * Math.Pow(Radius, 2);
-            return area;
+            return area.Round(2);
         }
 
         public override void Move(int deltaX, int deltaY)
