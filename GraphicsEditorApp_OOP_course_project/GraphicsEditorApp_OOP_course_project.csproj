@@ -85,16 +85,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C:/Users/LubenStefano/Desktop/GraphicsEditor/GraphicsEditorApp_OOP_course_project/Forms/\ShapeStatisticsForm.cs">
-      <Link>ShapeStatisticsForm.cs</Link>
-    </Compile>
-    <Compile Include="C:/Users/LubenStefano/Desktop/GraphicsEditor/GraphicsEditorApp_OOP_course_project/Forms/\ShapeStatisticsForm.Designer.cs">
-      <Link>ShapeStatisticsForm.Designer.cs</Link>
-      <DependentUpon>ShapeStatisticsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="C:/Users/LubenStefano/Desktop/GraphicsEditor/GraphicsEditorApp_OOP_course_project/ShapeClasses/\BitmapShape.cs">
-      <Link>BitmapShape.cs</Link>
-    </Compile>
     <Compile Include="Forms\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
