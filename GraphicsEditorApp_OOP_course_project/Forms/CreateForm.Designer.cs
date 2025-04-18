@@ -59,7 +59,7 @@
             this.createShapeLabel.Location = new System.Drawing.Point(289, 10);
             this.createShapeLabel.Name = "createShapeLabel";
             this.createShapeLabel.Size = new System.Drawing.Size(198, 38);
-            this.createShapeLabel.TabIndex = 0;
+            this.createShapeLabel.TabIndex = 10;
             this.createShapeLabel.Text = "Create Shape";
             // 
             // chooseShapeLabel
@@ -69,7 +69,7 @@
             this.chooseShapeLabel.Location = new System.Drawing.Point(307, 64);
             this.chooseShapeLabel.Name = "chooseShapeLabel";
             this.chooseShapeLabel.Size = new System.Drawing.Size(156, 27);
-            this.chooseShapeLabel.TabIndex = 1;
+            this.chooseShapeLabel.TabIndex = 11;
             this.chooseShapeLabel.Text = "Choose shape:";
             // 
             // shapeComboBox
@@ -86,10 +86,10 @@
             "Rhombus",
             "Trapezoid",
             "Triangle"});
-            this.shapeComboBox.Location = new System.Drawing.Point(299, 94);
+            this.shapeComboBox.Location = new System.Drawing.Point(296, 94);
             this.shapeComboBox.Name = "shapeComboBox";
             this.shapeComboBox.Size = new System.Drawing.Size(178, 35);
-            this.shapeComboBox.TabIndex = 2;
+            this.shapeComboBox.TabIndex = 1;
             this.shapeComboBox.SelectedIndexChanged += new System.EventHandler(this.shapeComboBox_SelectedIndexChanged);
             // 
             // xValueLabel
@@ -99,7 +99,7 @@
             this.xValueLabel.Location = new System.Drawing.Point(93, 145);
             this.xValueLabel.Name = "xValueLabel";
             this.xValueLabel.Size = new System.Drawing.Size(148, 27);
-            this.xValueLabel.TabIndex = 3;
+            this.xValueLabel.TabIndex = 12;
             this.xValueLabel.Text = "Enter X value:";
             this.xValueLabel.Visible = false;
             // 
@@ -110,7 +110,7 @@
             this.yValueLabel.Location = new System.Drawing.Point(92, 226);
             this.yValueLabel.Name = "yValueLabel";
             this.yValueLabel.Size = new System.Drawing.Size(148, 27);
-            this.yValueLabel.TabIndex = 4;
+            this.yValueLabel.TabIndex = 13;
             this.yValueLabel.Text = "Enter Y value:";
             this.yValueLabel.Visible = false;
             // 
@@ -121,7 +121,7 @@
             this.shapeColorLabel.Location = new System.Drawing.Point(64, 313);
             this.shapeColorLabel.Name = "shapeColorLabel";
             this.shapeColorLabel.Size = new System.Drawing.Size(211, 27);
-            this.shapeColorLabel.TabIndex = 5;
+            this.shapeColorLabel.TabIndex = 14;
             this.shapeColorLabel.Text = "Choose shape color:";
             this.shapeColorLabel.Visible = false;
             // 
@@ -132,7 +132,7 @@
             this.isFilledLabel.Location = new System.Drawing.Point(92, 417);
             this.isFilledLabel.Name = "isFilledLabel";
             this.isFilledLabel.Size = new System.Drawing.Size(125, 27);
-            this.isFilledLabel.TabIndex = 6;
+            this.isFilledLabel.TabIndex = 15;
             this.isFilledLabel.Text = "Color filled:";
             this.isFilledLabel.Visible = false;
             // 
@@ -154,7 +154,7 @@
             this.shapeColorComboBox.Location = new System.Drawing.Point(45, 343);
             this.shapeColorComboBox.Name = "shapeColorComboBox";
             this.shapeColorComboBox.Size = new System.Drawing.Size(242, 35);
-            this.shapeColorComboBox.TabIndex = 7;
+            this.shapeColorComboBox.TabIndex = 4;
             this.shapeColorComboBox.Visible = false;
             this.shapeColorComboBox.Leave += new System.EventHandler(this.shapeColorComboBox_Leave);
             // 
@@ -163,7 +163,7 @@
             this.xValueTextBox.Location = new System.Drawing.Point(45, 175);
             this.xValueTextBox.Name = "xValueTextBox";
             this.xValueTextBox.Size = new System.Drawing.Size(242, 41);
-            this.xValueTextBox.TabIndex = 9;
+            this.xValueTextBox.TabIndex = 2;
             this.xValueTextBox.Visible = false;
             this.xValueTextBox.Leave += new System.EventHandler(this.xValueTextBox_Leave);
             // 
@@ -172,7 +172,7 @@
             this.yValueTextBox.Location = new System.Drawing.Point(45, 256);
             this.yValueTextBox.Name = "yValueTextBox";
             this.yValueTextBox.Size = new System.Drawing.Size(242, 41);
-            this.yValueTextBox.TabIndex = 10;
+            this.yValueTextBox.TabIndex = 3;
             this.yValueTextBox.Visible = false;
             this.yValueTextBox.Leave += new System.EventHandler(this.yValueTextBox_Leave);
             // 
@@ -183,7 +183,7 @@
             this.aLabel.Location = new System.Drawing.Point(566, 145);
             this.aLabel.Name = "aLabel";
             this.aLabel.Size = new System.Drawing.Size(72, 27);
-            this.aLabel.TabIndex = 11;
+            this.aLabel.TabIndex = 16;
             this.aLabel.Text = "label1";
             this.aLabel.Visible = false;
             // 
@@ -192,7 +192,7 @@
             this.aTextBox.Location = new System.Drawing.Point(480, 175);
             this.aTextBox.Name = "aTextBox";
             this.aTextBox.Size = new System.Drawing.Size(242, 41);
-            this.aTextBox.TabIndex = 12;
+            this.aTextBox.TabIndex = 6;
             this.aTextBox.Visible = false;
             this.aTextBox.Leave += new System.EventHandler(this.aTextBox_Leave);
             // 
@@ -201,7 +201,7 @@
             this.bTextBox.Location = new System.Drawing.Point(480, 256);
             this.bTextBox.Name = "bTextBox";
             this.bTextBox.Size = new System.Drawing.Size(242, 41);
-            this.bTextBox.TabIndex = 14;
+            this.bTextBox.TabIndex = 7;
             this.bTextBox.Visible = false;
             this.bTextBox.Leave += new System.EventHandler(this.bTextBox_Leave);
             // 
@@ -212,7 +212,7 @@
             this.bLabel.Location = new System.Drawing.Point(566, 226);
             this.bLabel.Name = "bLabel";
             this.bLabel.Size = new System.Drawing.Size(72, 27);
-            this.bLabel.TabIndex = 13;
+            this.bLabel.TabIndex = 17;
             this.bLabel.Text = "label1";
             this.bLabel.Visible = false;
             // 
@@ -221,7 +221,7 @@
             this.cTextBox.Location = new System.Drawing.Point(480, 343);
             this.cTextBox.Name = "cTextBox";
             this.cTextBox.Size = new System.Drawing.Size(242, 41);
-            this.cTextBox.TabIndex = 16;
+            this.cTextBox.TabIndex = 8;
             this.cTextBox.Visible = false;
             this.cTextBox.Leave += new System.EventHandler(this.cTextBox_Leave);
             // 
@@ -232,7 +232,7 @@
             this.cLabel.Location = new System.Drawing.Point(566, 313);
             this.cLabel.Name = "cLabel";
             this.cLabel.Size = new System.Drawing.Size(72, 27);
-            this.cLabel.TabIndex = 15;
+            this.cLabel.TabIndex = 18;
             this.cLabel.Text = "label1";
             this.cLabel.Visible = false;
             // 
@@ -242,7 +242,7 @@
             this.createButton.Location = new System.Drawing.Point(478, 404);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(243, 53);
-            this.createButton.TabIndex = 17;
+            this.createButton.TabIndex = 9;
             this.createButton.Text = "Create Shape";
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Visible = false;
@@ -254,7 +254,7 @@
             this.isFilledCheckBox.Location = new System.Drawing.Point(218, 423);
             this.isFilledCheckBox.Name = "isFilledCheckBox";
             this.isFilledCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.isFilledCheckBox.TabIndex = 18;
+            this.isFilledCheckBox.TabIndex = 5;
             this.isFilledCheckBox.UseVisualStyleBackColor = true;
             this.isFilledCheckBox.Visible = false;
             // 
@@ -273,7 +273,7 @@
             this.progressBar1.Location = new System.Drawing.Point(478, 454);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(243, 10);
-            this.progressBar1.TabIndex = 21;
+            this.progressBar1.TabIndex = 19;
             this.progressBar1.Visible = false;
             // 
             // CreateForm

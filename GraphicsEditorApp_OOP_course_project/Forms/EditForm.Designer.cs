@@ -54,7 +54,7 @@
             this.editShapeLabel.Location = new System.Drawing.Point(324, 9);
             this.editShapeLabel.Name = "editShapeLabel";
             this.editShapeLabel.Size = new System.Drawing.Size(162, 38);
-            this.editShapeLabel.TabIndex = 1;
+            this.editShapeLabel.TabIndex = 10;
             this.editShapeLabel.Text = "Edit Shape";
             // 
             // IsFilledCheckBox
@@ -63,7 +63,7 @@
             this.IsFilledCheckBox.Location = new System.Drawing.Point(243, 340);
             this.IsFilledCheckBox.Name = "IsFilledCheckBox";
             this.IsFilledCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.IsFilledCheckBox.TabIndex = 33;
+            this.IsFilledCheckBox.TabIndex = 4;
             this.IsFilledCheckBox.UseVisualStyleBackColor = true;
             this.IsFilledCheckBox.Visible = false;
             // 
@@ -72,7 +72,7 @@
             this.EditButton.Location = new System.Drawing.Point(503, 322);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(243, 49);
-            this.EditButton.TabIndex = 32;
+            this.EditButton.TabIndex = 8;
             this.EditButton.Text = "Edit Shape";
             this.EditButton.UseVisualStyleBackColor = true;
             this.EditButton.Visible = false;
@@ -83,7 +83,7 @@
             this.TextBoxC.Location = new System.Drawing.Point(505, 266);
             this.TextBoxC.Name = "TextBoxC";
             this.TextBoxC.Size = new System.Drawing.Size(242, 29);
-            this.TextBoxC.TabIndex = 31;
+            this.TextBoxC.TabIndex = 7;
             this.TextBoxC.Visible = false;
             // 
             // cLabel
@@ -101,7 +101,7 @@
             this.TextBoxB.Location = new System.Drawing.Point(505, 185);
             this.TextBoxB.Name = "TextBoxB";
             this.TextBoxB.Size = new System.Drawing.Size(242, 29);
-            this.TextBoxB.TabIndex = 29;
+            this.TextBoxB.TabIndex = 6;
             this.TextBoxB.Visible = false;
             // 
             // bLabel
@@ -119,7 +119,7 @@
             this.TextBoxA.Location = new System.Drawing.Point(505, 110);
             this.TextBoxA.Name = "TextBoxA";
             this.TextBoxA.Size = new System.Drawing.Size(242, 29);
-            this.TextBoxA.TabIndex = 27;
+            this.TextBoxA.TabIndex = 5;
             this.TextBoxA.Visible = false;
             // 
             // aLabel
@@ -137,7 +137,7 @@
             this.YvalueTextBox.Location = new System.Drawing.Point(70, 185);
             this.YvalueTextBox.Name = "YvalueTextBox";
             this.YvalueTextBox.Size = new System.Drawing.Size(242, 29);
-            this.YvalueTextBox.TabIndex = 25;
+            this.YvalueTextBox.TabIndex = 2;
             this.YvalueTextBox.Visible = false;
             // 
             // XvalueTextBox
@@ -145,7 +145,7 @@
             this.XvalueTextBox.Location = new System.Drawing.Point(70, 110);
             this.XvalueTextBox.Name = "XvalueTextBox";
             this.XvalueTextBox.Size = new System.Drawing.Size(242, 29);
-            this.XvalueTextBox.TabIndex = 24;
+            this.XvalueTextBox.TabIndex = 1;
             this.XvalueTextBox.Visible = false;
             // 
             // ShapeColorComboBox
@@ -166,7 +166,7 @@
             this.ShapeColorComboBox.Location = new System.Drawing.Point(70, 266);
             this.ShapeColorComboBox.Name = "ShapeColorComboBox";
             this.ShapeColorComboBox.Size = new System.Drawing.Size(242, 32);
-            this.ShapeColorComboBox.TabIndex = 23;
+            this.ShapeColorComboBox.TabIndex = 3;
             this.ShapeColorComboBox.Visible = false;
             // 
             // IsFilledLabel
