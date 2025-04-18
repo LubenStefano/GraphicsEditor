@@ -39,7 +39,6 @@
             this.colorButton = new System.Windows.Forms.Button();
             this.brushButton = new System.Windows.Forms.Button();
             this.penButton = new System.Windows.Forms.Button();
-            this.colorPictureBox = new System.Windows.Forms.PictureBox();
             this.selectButton = new System.Windows.Forms.Button();
             this.eraseButton = new System.Windows.Forms.Button();
             this.fillButton = new System.Windows.Forms.Button();
@@ -49,14 +48,15 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsPanel = new System.Windows.Forms.Panel();
-            this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorPictureBox = new System.Windows.Forms.PictureBox();
             this.infoStatusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.colorPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // createShapeLabel
@@ -157,16 +157,6 @@
             this.penButton.UseVisualStyleBackColor = true;
             this.penButton.Click += new System.EventHandler(this.penButton_Click);
             // 
-            // colorPictureBox
-            // 
-            this.colorPictureBox.BackColor = System.Drawing.Color.Black;
-            this.colorPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.colorPictureBox.Location = new System.Drawing.Point(303, 11);
-            this.colorPictureBox.Name = "colorPictureBox";
-            this.colorPictureBox.Size = new System.Drawing.Size(23, 23);
-            this.colorPictureBox.TabIndex = 10;
-            this.colorPictureBox.TabStop = false;
-            // 
             // selectButton
             // 
             this.selectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,14 +217,14 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -256,6 +246,15 @@
             this.toolsToolStripMenuItem.Text = "Tools";
             this.toolsToolStripMenuItem.Click += new System.EventHandler(this.toolsToolStripMenuItem_Click);
             // 
+            // statusBarToolStripMenuItem
+            // 
+            this.statusBarToolStripMenuItem.Checked = true;
+            this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.statusBarToolStripMenuItem.Text = "Status Bar";
+            this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.statusBarToolStripMenuItem_Click);
+            // 
             // statisticsToolStripMenuItem
             // 
             this.statisticsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -269,6 +268,7 @@
             this.openStatisticsToolStripMenuItem.Name = "openStatisticsToolStripMenuItem";
             this.openStatisticsToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.openStatisticsToolStripMenuItem.Text = "Open Statistics";
+            this.openStatisticsToolStripMenuItem.Click += new System.EventHandler(this.openStatisticsToolStripMenuItem_Click);
             // 
             // toolsPanel
             // 
@@ -287,14 +287,15 @@
             this.toolsPanel.Size = new System.Drawing.Size(769, 42);
             this.toolsPanel.TabIndex = 15;
             // 
-            // statusBarToolStripMenuItem
+            // colorPictureBox
             // 
-            this.statusBarToolStripMenuItem.Checked = true;
-            this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.statusBarToolStripMenuItem.Text = "Status Bar";
-            this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.statusBarToolStripMenuItem_Click);
+            this.colorPictureBox.BackColor = System.Drawing.Color.Black;
+            this.colorPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.colorPictureBox.Location = new System.Drawing.Point(303, 11);
+            this.colorPictureBox.Name = "colorPictureBox";
+            this.colorPictureBox.Size = new System.Drawing.Size(23, 23);
+            this.colorPictureBox.TabIndex = 10;
+            this.colorPictureBox.TabStop = false;
             // 
             // MainForm
             // 
@@ -316,10 +317,10 @@
             this.Text = "Graphic Editor";
             this.infoStatusStrip.ResumeLayout(false);
             this.infoStatusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.colorPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

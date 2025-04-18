@@ -5,9 +5,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using GraphicsEditorApp_OOP_course_project.Forms;
 using GraphicsEditorApp_OOP_course_project.Services;
 using GraphicsEditorApp_OOP_course_project.ShapeClasses;
-
 
 namespace GraphicsEditorApp_OOP_course_project
 {
@@ -536,6 +536,7 @@ namespace GraphicsEditorApp_OOP_course_project
                     {
                         ShapeSerializer.SaveToFile(saveFileDialog.FileName, _shapes);
                         MessageBox.Show("Shapes saved successfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //_drawingBitmap.Save(saveFileDialog.FileName + ".png", System.Drawing.Imaging.ImageFormat.Png); should add all shapes to the bitmap and background color
                     }
                     catch (Exception ex)
                     {
@@ -602,6 +603,12 @@ namespace GraphicsEditorApp_OOP_course_project
 
             // Trigger a UI refresh to reflect the cleared state
             RefreshShapes();
+        }
+
+        private void openStatisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShapesStatisticsForm statisticsForm = new ShapesStatisticsForm(_shapes);
+            statisticsForm.ShowDialog();
         }
     }
 }
