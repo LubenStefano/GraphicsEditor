@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShapesStatisticsForm));
             this.shapesStatisticsLabel = new System.Windows.Forms.Label();
             this.dashboardPanel = new System.Windows.Forms.Panel();
             this.dashboardLabel = new System.Windows.Forms.Label();
@@ -110,7 +111,7 @@
             this.mostUsedShapeTextBox.Location = new System.Drawing.Point(21, -2);
             this.mostUsedShapeTextBox.Name = "mostUsedShapeTextBox";
             this.mostUsedShapeTextBox.ReadOnly = true;
-            this.mostUsedShapeTextBox.Size = new System.Drawing.Size(197, 99);
+            this.mostUsedShapeTextBox.Size = new System.Drawing.Size(197, 91);
             this.mostUsedShapeTextBox.TabIndex = 7;
             this.mostUsedShapeTextBox.TabStop = false;
             this.mostUsedShapeTextBox.Text = "Circle";
@@ -149,7 +150,7 @@
             this.mostUsedColorTextBox.Location = new System.Drawing.Point(45, -2);
             this.mostUsedColorTextBox.Name = "mostUsedColorTextBox";
             this.mostUsedColorTextBox.ReadOnly = true;
-            this.mostUsedColorTextBox.Size = new System.Drawing.Size(154, 99);
+            this.mostUsedColorTextBox.Size = new System.Drawing.Size(154, 91);
             this.mostUsedColorTextBox.TabIndex = 6;
             this.mostUsedColorTextBox.TabStop = false;
             this.mostUsedColorTextBox.Text = "Blue";
@@ -189,7 +190,7 @@
             this.totalShapesTextBox.Location = new System.Drawing.Point(56, -2);
             this.totalShapesTextBox.Name = "totalShapesTextBox";
             this.totalShapesTextBox.ReadOnly = true;
-            this.totalShapesTextBox.Size = new System.Drawing.Size(122, 99);
+            this.totalShapesTextBox.Size = new System.Drawing.Size(122, 91);
             this.totalShapesTextBox.TabIndex = 5;
             this.totalShapesTextBox.TabStop = false;
             this.totalShapesTextBox.Text = "8";
@@ -228,14 +229,14 @@
             // shapesDataGridView
             // 
             this.shapesDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.shapesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.shapesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.shapesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.shapesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.typeColumn,
@@ -309,6 +310,7 @@
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.shapesStatisticsLabel);
             this.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ShapesStatisticsForm";
             this.Text = "ShapesStatisticsForm";
