@@ -64,21 +64,16 @@ namespace GraphicsEditorForms
         {
             Graphics g = e.Graphics;
 
-            // Save the original position of the shape
             int originalX = _selectedShape.GetX();
             int originalY = _selectedShape.GetY();
 
-            // Calculate the center of the panel
-            int panelCenterX = shapePanel.Width / 2;
-            int panelCenterY = shapePanel.Height / 2;
+            // Центрирай чрез помощен клас
+            ShapeCenteringHelper.CenterShapeInPanel(_selectedShape, shapePanel);
 
-            // Adjust the shape's position to center it in the panel
-            _selectedShape.EditPosition(panelCenterX - _selectedShape.GetX() / 2, panelCenterY - _selectedShape.GetY() / 2);
-
-            // Draw the shape
+            // Рисувай
             _selectedShape.Draw(g);
 
-            // Restore the original position of the shape
+            // Възстанови оригиналните координати
             _selectedShape.EditPosition(originalX, originalY);
         }
 

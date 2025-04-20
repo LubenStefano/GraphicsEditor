@@ -120,6 +120,7 @@
     <Compile Include="UIhelpers\ControlsHelper.cs" />
     <Compile Include="UIhelpers\MessageHandlerHelper.cs" />
     <Compile Include="UIhelpers\PopulateFields.cs" />
+    <Compile Include="UIhelpers\ShapeCenteringHelper.cs" />
     <EmbeddedResource Include="Forms\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -9,12 +9,6 @@ namespace GraphicsEditorShapes.ShapeClasses
         protected Color ShapeColor { get; private set; } = Color.Black;
         protected bool IsFilled { get; private set; }
 
-        public Shape(int x, int y, bool isFilled)
-        {
-            X = x;
-            Y = y;
-            IsFilled = isFilled;
-        }
 
         public Shape(int x, int y, bool isFilled, Color color)
         {
@@ -69,5 +63,6 @@ namespace GraphicsEditorShapes.ShapeClasses
         {
             return IsFilled;
         }
+        
     }
 }
