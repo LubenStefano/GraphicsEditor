@@ -251,6 +251,7 @@
             // 
             this.typeColumn.HeaderText = "Type";
             this.typeColumn.Name = "typeColumn";
+            this.typeColumn.ReadOnly = true;
             this.typeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.typeColumn.Width = 230;
             // 
@@ -258,6 +259,7 @@
             // 
             this.usageColumn.HeaderText = "Usage";
             this.usageColumn.Name = "usageColumn";
+            this.usageColumn.ReadOnly = true;
             this.usageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.usageColumn.Width = 230;
             // 
@@ -265,6 +267,7 @@
             // 
             this.averageAreaColumn.HeaderText = "Average Area";
             this.averageAreaColumn.Name = "averageAreaColumn";
+            this.averageAreaColumn.ReadOnly = true;
             this.averageAreaColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.averageAreaColumn.Width = 230;
             // 
@@ -272,6 +275,7 @@
             // 
             this.mostUsedColorColumn.HeaderText = "Most Used Color";
             this.mostUsedColorColumn.Name = "mostUsedColorColumn";
+            this.mostUsedColorColumn.ReadOnly = true;
             this.mostUsedColorColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.mostUsedColorColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.mostUsedColorColumn.Width = 230;
@@ -288,8 +292,10 @@
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.shapesStatisticsLabel);
             this.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
             this.Name = "ShapesStatisticsForm";
             this.Text = "ShapesStatisticsForm";
             this.dashboardPanel.ResumeLayout(false);

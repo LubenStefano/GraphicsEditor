@@ -171,7 +171,6 @@
             this.yValueTextBox.Size = new System.Drawing.Size(242, 41);
             this.yValueTextBox.TabIndex = 3;
             this.yValueTextBox.Visible = false;
- 
             // 
             // aLabel
             // 
@@ -287,8 +286,10 @@
             this.Controls.Add(this.chooseShapeLabel);
             this.Controls.Add(this.createShapeLabel);
             this.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
             this.Name = "CreateForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Shape";
