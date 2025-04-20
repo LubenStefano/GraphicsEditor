@@ -1,12 +1,12 @@
 ﻿using GraphicsEditorCore;
 using GraphicsEditorShapes.ShapeClasses;
-using GraphicsEditorApp_OOP_course_project.UIhelpers;
+using GraphicsEditorForms.UIhelpers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace GraphicsEditorApp_OOP_course_project
+namespace GraphicsEditorForms
 {
     public partial class ShapeInfoForm : Form
     {

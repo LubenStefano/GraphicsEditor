@@ -1,4 +1,4 @@
-﻿namespace GraphicsEditorApp_OOP_course_project
+﻿namespace GraphicsEditorForms
 {
     partial class MainForm
     {

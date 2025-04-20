@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using GraphicsEditorApp_OOP_course_project.Forms;
-using GraphicsEditorApp_OOP_course_project.UIhelpers;
+using GraphicsEditorForms.UIhelpers;
 using GraphicsEditorCore;
 using GraphicsEditorServices;
 using GraphicsEditorShapes.ShapeClasses;
 
-namespace GraphicsEditorApp_OOP_course_project
+namespace GraphicsEditorForms
 {
     public partial class MainForm : Form
     {

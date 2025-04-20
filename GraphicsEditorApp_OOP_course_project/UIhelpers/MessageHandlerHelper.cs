@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace GraphicsEditorApp_OOP_course_project.UIhelpers
+namespace GraphicsEditorForms.UIhelpers
 {
     public class MessageHandlerHelper
     {

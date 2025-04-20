@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using GraphicsEditorApp_OOP_course_project.UIhelpers;
+using GraphicsEditorForms.UIhelpers;
 using GraphicsEditorShapes.ShapeClasses;
 using GraphicsEditorShapes.ShapeCreation;
 using GraphicsEditorCore;
 
-namespace GraphicsEditorApp_OOP_course_project
+namespace GraphicsEditorForms
 {
     public partial class CreateForm : Form
     {

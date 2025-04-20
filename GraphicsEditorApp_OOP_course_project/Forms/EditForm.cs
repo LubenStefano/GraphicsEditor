@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using GraphicsEditorCore;
 using GraphicsEditorShapes.ShapeClasses;
-using GraphicsEditorApp_OOP_course_project.UIhelpers;
+using GraphicsEditorForms.UIhelpers;
 
-namespace GraphicsEditorApp_OOP_course_project
+namespace GraphicsEditorForms
 {
     public partial class EditForm : Form
     {
@@ -112,9 +112,9 @@ namespace GraphicsEditorApp_OOP_course_project
                     _selectedShape.EditDimensions(a, b);
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
-                _messageHandlerHelper.ShowError("Error", "Invalid input format. Please enter valid numbers.");
+                _messageHandlerHelper.ShowError("Invalid input format", "Invalid input format. Please enter valid numbers.");
             }
         }
 
@@ -127,7 +127,7 @@ namespace GraphicsEditorApp_OOP_course_project
                     if (dimension <= 0)
                     {
                         _messageHandlerHelper.ShowError("Error", "Dimensions must be non-negative.");
-                        throw new ArgumentException("Dimensions must be non-negative.");
+                        return;
                     }
                 }
 
@@ -137,9 +137,9 @@ namespace GraphicsEditorApp_OOP_course_project
                 this.DialogResult = DialogResult.OK; // Indicate successful edit
                 this.Close();
             }
-            catch (Exception ex)
+            catch (FormatException)
             {
-                MessageBox.Show($"An error occurred while editing the shape: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _messageHandlerHelper.ShowError("Invalid input format", "Invalid input format. Please enter valid numbers.");
             }
         }
     }

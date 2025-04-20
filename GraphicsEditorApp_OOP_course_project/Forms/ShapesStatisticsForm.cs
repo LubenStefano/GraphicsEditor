@@ -4,7 +4,7 @@ using GraphicsEditorCore;
 using GraphicsEditorServices;
 using GraphicsEditorShapes.ShapeClasses;
 
-namespace GraphicsEditorApp_OOP_course_project.Forms
+namespace GraphicsEditorForms
 {
     public partial class ShapesStatisticsForm : Form
     {
