@@ -105,17 +105,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ShapeSerializer.cs" />
-    <Compile Include="Services\ShapeStatisticsService.cs" />
-    <Compile Include="ShapeClasses\BitmapShape.cs" />
-    <Compile Include="ShapeClasses\Circle.cs" />
-    <Compile Include="ShapeClasses\Parallelogram.cs" />
-    <Compile Include="ShapeClasses\Rectangle.cs" />
-    <Compile Include="ShapeClasses\Rhombus.cs" />
-    <Compile Include="ShapeClasses\Shape.cs" />
-    <Compile Include="ShapeClasses\Square.cs" />
-    <Compile Include="ShapeClasses\Trapezoid.cs" />
-    <Compile Include="ShapeClasses\Triangle.cs" />
     <Compile Include="Forms\ShapeInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +117,9 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIhelpers\ControlsHelper.cs" />
+    <Compile Include="UIhelpers\MessageHandlerHelper.cs" />
+    <Compile Include="UIhelpers\PopulateFields.cs" />
     <EmbeddedResource Include="Forms\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,5 +165,20 @@
   <ItemGroup>
     <None Include="Resources\geometricshapesoutlinedsymbol_799631.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GraphicsEditorCore\GraphicsEditorCore.csproj">
+      <Project>{deaee2a4-615d-4532-8354-8a3885dce9f5}</Project>
+      <Name>GraphicsEditorCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GraphicsEditorServices\GraphicsEditorServices.csproj">
+      <Project>{909c0ed6-b9c3-4b2d-a47f-94053cb65092}</Project>
+      <Name>GraphicsEditorServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GraphicsEditorShapes\GraphicsEditorShapes.csproj">
+      <Project>{599f14af-5d41-4004-a4fe-92a066932e5a}</Project>
+      <Name>GraphicsEditorShapes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

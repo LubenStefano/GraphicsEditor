@@ -49,8 +49,6 @@
             this.usageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.averageAreaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mostUsedColorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderbyComboBox = new System.Windows.Forms.ComboBox();
-            this.orderByLabel = new System.Windows.Forms.Label();
             this.dashboardPanel.SuspendLayout();
             this.mostUsedShapePanel.SuspendLayout();
             this.mostUsedColorPanel.SuspendLayout();
@@ -111,7 +109,7 @@
             this.mostUsedShapeTextBox.Location = new System.Drawing.Point(21, -2);
             this.mostUsedShapeTextBox.Name = "mostUsedShapeTextBox";
             this.mostUsedShapeTextBox.ReadOnly = true;
-            this.mostUsedShapeTextBox.Size = new System.Drawing.Size(197, 91);
+            this.mostUsedShapeTextBox.Size = new System.Drawing.Size(197, 99);
             this.mostUsedShapeTextBox.TabIndex = 7;
             this.mostUsedShapeTextBox.TabStop = false;
             this.mostUsedShapeTextBox.Text = "Circle";
@@ -150,7 +148,7 @@
             this.mostUsedColorTextBox.Location = new System.Drawing.Point(45, -2);
             this.mostUsedColorTextBox.Name = "mostUsedColorTextBox";
             this.mostUsedColorTextBox.ReadOnly = true;
-            this.mostUsedColorTextBox.Size = new System.Drawing.Size(154, 91);
+            this.mostUsedColorTextBox.Size = new System.Drawing.Size(154, 99);
             this.mostUsedColorTextBox.TabIndex = 6;
             this.mostUsedColorTextBox.TabStop = false;
             this.mostUsedColorTextBox.Text = "Blue";
@@ -190,7 +188,7 @@
             this.totalShapesTextBox.Location = new System.Drawing.Point(56, -2);
             this.totalShapesTextBox.Name = "totalShapesTextBox";
             this.totalShapesTextBox.ReadOnly = true;
-            this.totalShapesTextBox.Size = new System.Drawing.Size(122, 91);
+            this.totalShapesTextBox.Size = new System.Drawing.Size(122, 99);
             this.totalShapesTextBox.TabIndex = 5;
             this.totalShapesTextBox.TabStop = false;
             this.totalShapesTextBox.Text = "8";
@@ -244,57 +242,39 @@
             this.averageAreaColumn,
             this.mostUsedColorColumn});
             this.shapesDataGridView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.shapesDataGridView.Location = new System.Drawing.Point(7, 290);
+            this.shapesDataGridView.Location = new System.Drawing.Point(7, 268);
             this.shapesDataGridView.Name = "shapesDataGridView";
-            this.shapesDataGridView.Size = new System.Drawing.Size(963, 239);
+            this.shapesDataGridView.Size = new System.Drawing.Size(963, 261);
             this.shapesDataGridView.TabIndex = 4;
             // 
             // typeColumn
             // 
             this.typeColumn.HeaderText = "Type";
             this.typeColumn.Name = "typeColumn";
+            this.typeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.typeColumn.Width = 230;
             // 
             // usageColumn
             // 
             this.usageColumn.HeaderText = "Usage";
             this.usageColumn.Name = "usageColumn";
+            this.usageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.usageColumn.Width = 230;
             // 
             // averageAreaColumn
             // 
             this.averageAreaColumn.HeaderText = "Average Area";
             this.averageAreaColumn.Name = "averageAreaColumn";
+            this.averageAreaColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.averageAreaColumn.Width = 230;
             // 
             // mostUsedColorColumn
             // 
             this.mostUsedColorColumn.HeaderText = "Most Used Color";
             this.mostUsedColorColumn.Name = "mostUsedColorColumn";
+            this.mostUsedColorColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.mostUsedColorColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.mostUsedColorColumn.Width = 230;
-            // 
-            // orderbyComboBox
-            // 
-            this.orderbyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.orderbyComboBox.FormattingEnabled = true;
-            this.orderbyComboBox.Items.AddRange(new object[] {
-            "usage",
-            "color",
-            "avaragearea"});
-            this.orderbyComboBox.Location = new System.Drawing.Point(116, 249);
-            this.orderbyComboBox.Name = "orderbyComboBox";
-            this.orderbyComboBox.Size = new System.Drawing.Size(151, 35);
-            this.orderbyComboBox.TabIndex = 5;
-            this.orderbyComboBox.SelectedIndexChanged += new System.EventHandler(this.orderbyComboBox_SelectedIndexChanged);
-            // 
-            // orderByLabel
-            // 
-            this.orderByLabel.AutoSize = true;
-            this.orderByLabel.Location = new System.Drawing.Point(12, 252);
-            this.orderByLabel.Name = "orderByLabel";
-            this.orderByLabel.Size = new System.Drawing.Size(98, 27);
-            this.orderByLabel.TabIndex = 6;
-            this.orderByLabel.Text = "order by:";
             // 
             // ShapesStatisticsForm
             // 
@@ -302,8 +282,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(975, 541);
-            this.Controls.Add(this.orderByLabel);
-            this.Controls.Add(this.orderbyComboBox);
             this.Controls.Add(this.shapesDataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -350,7 +328,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn usageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn averageAreaColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mostUsedColorColumn;
-        private System.Windows.Forms.ComboBox orderbyComboBox;
-        private System.Windows.Forms.Label orderByLabel;
     }
 }

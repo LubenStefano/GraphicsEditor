@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
             this.editShapeLabel = new System.Windows.Forms.Label();
-            this.IsFilledCheckBox = new System.Windows.Forms.CheckBox();
-            this.EditButton = new System.Windows.Forms.Button();
-            this.TextBoxC = new System.Windows.Forms.TextBox();
+            this.isFilledCheckBox = new System.Windows.Forms.CheckBox();
+            this.editButton = new System.Windows.Forms.Button();
+            this.cTextBox = new System.Windows.Forms.TextBox();
             this.cLabel = new System.Windows.Forms.Label();
-            this.TextBoxB = new System.Windows.Forms.TextBox();
+            this.bTextBox = new System.Windows.Forms.TextBox();
             this.bLabel = new System.Windows.Forms.Label();
-            this.TextBoxA = new System.Windows.Forms.TextBox();
+            this.aTextBox = new System.Windows.Forms.TextBox();
             this.aLabel = new System.Windows.Forms.Label();
-            this.YvalueTextBox = new System.Windows.Forms.TextBox();
-            this.XvalueTextBox = new System.Windows.Forms.TextBox();
-            this.ShapeColorComboBox = new System.Windows.Forms.ComboBox();
-            this.IsFilledLabel = new System.Windows.Forms.Label();
-            this.ShapeColorLabel = new System.Windows.Forms.Label();
-            this.YvalueLabel = new System.Windows.Forms.Label();
-            this.XvalueLabel = new System.Windows.Forms.Label();
+            this.yValueTextBox = new System.Windows.Forms.TextBox();
+            this.xValueTextBox = new System.Windows.Forms.TextBox();
+            this.shapeColorComboBox = new System.Windows.Forms.ComboBox();
+            this.isFilledLabel = new System.Windows.Forms.Label();
+            this.shapeColorLabel = new System.Windows.Forms.Label();
+            this.yValueLabel = new System.Windows.Forms.Label();
+            this.xValueLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // editShapeLabel
@@ -57,34 +57,34 @@
             this.editShapeLabel.TabIndex = 10;
             this.editShapeLabel.Text = "Edit Shape";
             // 
-            // IsFilledCheckBox
+            // isFilledCheckBox
             // 
-            this.IsFilledCheckBox.AutoSize = true;
-            this.IsFilledCheckBox.Location = new System.Drawing.Point(243, 340);
-            this.IsFilledCheckBox.Name = "IsFilledCheckBox";
-            this.IsFilledCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.IsFilledCheckBox.TabIndex = 4;
-            this.IsFilledCheckBox.UseVisualStyleBackColor = true;
-            this.IsFilledCheckBox.Visible = false;
+            this.isFilledCheckBox.AutoSize = true;
+            this.isFilledCheckBox.Location = new System.Drawing.Point(243, 340);
+            this.isFilledCheckBox.Name = "isFilledCheckBox";
+            this.isFilledCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.isFilledCheckBox.TabIndex = 4;
+            this.isFilledCheckBox.UseVisualStyleBackColor = true;
+            this.isFilledCheckBox.Visible = false;
             // 
-            // EditButton
+            // editButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(503, 322);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(243, 49);
-            this.EditButton.TabIndex = 8;
-            this.EditButton.Text = "Edit Shape";
-            this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Visible = false;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            this.editButton.Location = new System.Drawing.Point(503, 322);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(243, 49);
+            this.editButton.TabIndex = 8;
+            this.editButton.Text = "Edit Shape";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Visible = false;
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
-            // TextBoxC
+            // cTextBox
             // 
-            this.TextBoxC.Location = new System.Drawing.Point(505, 266);
-            this.TextBoxC.Name = "TextBoxC";
-            this.TextBoxC.Size = new System.Drawing.Size(242, 29);
-            this.TextBoxC.TabIndex = 7;
-            this.TextBoxC.Visible = false;
+            this.cTextBox.Location = new System.Drawing.Point(505, 266);
+            this.cTextBox.Name = "cTextBox";
+            this.cTextBox.Size = new System.Drawing.Size(242, 29);
+            this.cTextBox.TabIndex = 7;
+            this.cTextBox.Visible = false;
             // 
             // cLabel
             // 
@@ -96,13 +96,13 @@
             this.cLabel.Text = "label1";
             this.cLabel.Visible = false;
             // 
-            // TextBoxB
+            // bTextBox
             // 
-            this.TextBoxB.Location = new System.Drawing.Point(505, 185);
-            this.TextBoxB.Name = "TextBoxB";
-            this.TextBoxB.Size = new System.Drawing.Size(242, 29);
-            this.TextBoxB.TabIndex = 6;
-            this.TextBoxB.Visible = false;
+            this.bTextBox.Location = new System.Drawing.Point(505, 185);
+            this.bTextBox.Name = "bTextBox";
+            this.bTextBox.Size = new System.Drawing.Size(242, 29);
+            this.bTextBox.TabIndex = 6;
+            this.bTextBox.Visible = false;
             // 
             // bLabel
             // 
@@ -114,13 +114,13 @@
             this.bLabel.Text = "label1";
             this.bLabel.Visible = false;
             // 
-            // TextBoxA
+            // aTextBox
             // 
-            this.TextBoxA.Location = new System.Drawing.Point(505, 110);
-            this.TextBoxA.Name = "TextBoxA";
-            this.TextBoxA.Size = new System.Drawing.Size(242, 29);
-            this.TextBoxA.TabIndex = 5;
-            this.TextBoxA.Visible = false;
+            this.aTextBox.Location = new System.Drawing.Point(505, 110);
+            this.aTextBox.Name = "aTextBox";
+            this.aTextBox.Size = new System.Drawing.Size(242, 29);
+            this.aTextBox.TabIndex = 5;
+            this.aTextBox.Visible = false;
             // 
             // aLabel
             // 
@@ -132,29 +132,29 @@
             this.aLabel.Text = "label1";
             this.aLabel.Visible = false;
             // 
-            // YvalueTextBox
+            // yValueTextBox
             // 
-            this.YvalueTextBox.Location = new System.Drawing.Point(70, 185);
-            this.YvalueTextBox.Name = "YvalueTextBox";
-            this.YvalueTextBox.Size = new System.Drawing.Size(242, 29);
-            this.YvalueTextBox.TabIndex = 2;
-            this.YvalueTextBox.Visible = false;
+            this.yValueTextBox.Location = new System.Drawing.Point(70, 185);
+            this.yValueTextBox.Name = "yValueTextBox";
+            this.yValueTextBox.Size = new System.Drawing.Size(242, 29);
+            this.yValueTextBox.TabIndex = 2;
+            this.yValueTextBox.Visible = false;
             // 
-            // XvalueTextBox
+            // xValueTextBox
             // 
-            this.XvalueTextBox.Location = new System.Drawing.Point(70, 110);
-            this.XvalueTextBox.Name = "XvalueTextBox";
-            this.XvalueTextBox.Size = new System.Drawing.Size(242, 29);
-            this.XvalueTextBox.TabIndex = 1;
-            this.XvalueTextBox.Visible = false;
+            this.xValueTextBox.Location = new System.Drawing.Point(70, 110);
+            this.xValueTextBox.Name = "xValueTextBox";
+            this.xValueTextBox.Size = new System.Drawing.Size(242, 29);
+            this.xValueTextBox.TabIndex = 1;
+            this.xValueTextBox.Visible = false;
             // 
-            // ShapeColorComboBox
+            // shapeColorComboBox
             // 
-            this.ShapeColorComboBox.BackColor = System.Drawing.Color.White;
-            this.ShapeColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ShapeColorComboBox.ForeColor = System.Drawing.Color.Silver;
-            this.ShapeColorComboBox.FormattingEnabled = true;
-            this.ShapeColorComboBox.Items.AddRange(new object[] {
+            this.shapeColorComboBox.BackColor = System.Drawing.Color.White;
+            this.shapeColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.shapeColorComboBox.ForeColor = System.Drawing.Color.Silver;
+            this.shapeColorComboBox.FormattingEnabled = true;
+            this.shapeColorComboBox.Items.AddRange(new object[] {
             "Black",
             "Blue",
             "Red",
@@ -163,51 +163,51 @@
             "Green",
             "Pink",
             "Purple"});
-            this.ShapeColorComboBox.Location = new System.Drawing.Point(70, 266);
-            this.ShapeColorComboBox.Name = "ShapeColorComboBox";
-            this.ShapeColorComboBox.Size = new System.Drawing.Size(242, 32);
-            this.ShapeColorComboBox.TabIndex = 3;
-            this.ShapeColorComboBox.Visible = false;
+            this.shapeColorComboBox.Location = new System.Drawing.Point(70, 266);
+            this.shapeColorComboBox.Name = "shapeColorComboBox";
+            this.shapeColorComboBox.Size = new System.Drawing.Size(242, 32);
+            this.shapeColorComboBox.TabIndex = 3;
+            this.shapeColorComboBox.Visible = false;
             // 
-            // IsFilledLabel
+            // isFilledLabel
             // 
-            this.IsFilledLabel.AutoSize = true;
-            this.IsFilledLabel.Location = new System.Drawing.Point(117, 334);
-            this.IsFilledLabel.Name = "IsFilledLabel";
-            this.IsFilledLabel.Size = new System.Drawing.Size(103, 24);
-            this.IsFilledLabel.TabIndex = 22;
-            this.IsFilledLabel.Text = "Color filled:";
-            this.IsFilledLabel.Visible = false;
+            this.isFilledLabel.AutoSize = true;
+            this.isFilledLabel.Location = new System.Drawing.Point(117, 334);
+            this.isFilledLabel.Name = "isFilledLabel";
+            this.isFilledLabel.Size = new System.Drawing.Size(103, 24);
+            this.isFilledLabel.TabIndex = 22;
+            this.isFilledLabel.Text = "Color filled:";
+            this.isFilledLabel.Visible = false;
             // 
-            // ShapeColorLabel
+            // shapeColorLabel
             // 
-            this.ShapeColorLabel.AutoSize = true;
-            this.ShapeColorLabel.Location = new System.Drawing.Point(89, 238);
-            this.ShapeColorLabel.Name = "ShapeColorLabel";
-            this.ShapeColorLabel.Size = new System.Drawing.Size(185, 24);
-            this.ShapeColorLabel.TabIndex = 21;
-            this.ShapeColorLabel.Text = "Choose shape color:";
-            this.ShapeColorLabel.Visible = false;
+            this.shapeColorLabel.AutoSize = true;
+            this.shapeColorLabel.Location = new System.Drawing.Point(89, 238);
+            this.shapeColorLabel.Name = "shapeColorLabel";
+            this.shapeColorLabel.Size = new System.Drawing.Size(185, 24);
+            this.shapeColorLabel.TabIndex = 21;
+            this.shapeColorLabel.Text = "Choose shape color:";
+            this.shapeColorLabel.Visible = false;
             // 
-            // YvalueLabel
+            // yValueLabel
             // 
-            this.YvalueLabel.AutoSize = true;
-            this.YvalueLabel.Location = new System.Drawing.Point(117, 157);
-            this.YvalueLabel.Name = "YvalueLabel";
-            this.YvalueLabel.Size = new System.Drawing.Size(127, 24);
-            this.YvalueLabel.TabIndex = 20;
-            this.YvalueLabel.Text = "Enter Y value:";
-            this.YvalueLabel.Visible = false;
+            this.yValueLabel.AutoSize = true;
+            this.yValueLabel.Location = new System.Drawing.Point(117, 157);
+            this.yValueLabel.Name = "yValueLabel";
+            this.yValueLabel.Size = new System.Drawing.Size(127, 24);
+            this.yValueLabel.TabIndex = 20;
+            this.yValueLabel.Text = "Enter Y value:";
+            this.yValueLabel.Visible = false;
             // 
-            // XvalueLabel
+            // xValueLabel
             // 
-            this.XvalueLabel.AutoSize = true;
-            this.XvalueLabel.Location = new System.Drawing.Point(118, 82);
-            this.XvalueLabel.Name = "XvalueLabel";
-            this.XvalueLabel.Size = new System.Drawing.Size(129, 24);
-            this.XvalueLabel.TabIndex = 19;
-            this.XvalueLabel.Text = "Enter X value:";
-            this.XvalueLabel.Visible = false;
+            this.xValueLabel.AutoSize = true;
+            this.xValueLabel.Location = new System.Drawing.Point(118, 82);
+            this.xValueLabel.Name = "xValueLabel";
+            this.xValueLabel.Size = new System.Drawing.Size(129, 24);
+            this.xValueLabel.TabIndex = 19;
+            this.xValueLabel.Text = "Enter X value:";
+            this.xValueLabel.Visible = false;
             // 
             // EditForm
             // 
@@ -215,21 +215,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(817, 453);
-            this.Controls.Add(this.IsFilledCheckBox);
-            this.Controls.Add(this.EditButton);
-            this.Controls.Add(this.TextBoxC);
+            this.Controls.Add(this.isFilledCheckBox);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.cTextBox);
             this.Controls.Add(this.cLabel);
-            this.Controls.Add(this.TextBoxB);
+            this.Controls.Add(this.bTextBox);
             this.Controls.Add(this.bLabel);
-            this.Controls.Add(this.TextBoxA);
+            this.Controls.Add(this.aTextBox);
             this.Controls.Add(this.aLabel);
-            this.Controls.Add(this.YvalueTextBox);
-            this.Controls.Add(this.XvalueTextBox);
-            this.Controls.Add(this.ShapeColorComboBox);
-            this.Controls.Add(this.IsFilledLabel);
-            this.Controls.Add(this.ShapeColorLabel);
-            this.Controls.Add(this.YvalueLabel);
-            this.Controls.Add(this.XvalueLabel);
+            this.Controls.Add(this.yValueTextBox);
+            this.Controls.Add(this.xValueTextBox);
+            this.Controls.Add(this.shapeColorComboBox);
+            this.Controls.Add(this.isFilledLabel);
+            this.Controls.Add(this.shapeColorLabel);
+            this.Controls.Add(this.yValueLabel);
+            this.Controls.Add(this.xValueLabel);
             this.Controls.Add(this.editShapeLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -245,20 +245,20 @@
         #endregion
 
         private System.Windows.Forms.Label editShapeLabel;
-        private System.Windows.Forms.CheckBox IsFilledCheckBox;
-        private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.TextBox TextBoxC;
+        private System.Windows.Forms.CheckBox isFilledCheckBox;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.TextBox cTextBox;
         private System.Windows.Forms.Label cLabel;
-        private System.Windows.Forms.TextBox TextBoxB;
+        private System.Windows.Forms.TextBox bTextBox;
         private System.Windows.Forms.Label bLabel;
-        private System.Windows.Forms.TextBox TextBoxA;
+        private System.Windows.Forms.TextBox aTextBox;
         private System.Windows.Forms.Label aLabel;
-        private System.Windows.Forms.TextBox YvalueTextBox;
-        private System.Windows.Forms.TextBox XvalueTextBox;
-        private System.Windows.Forms.ComboBox ShapeColorComboBox;
-        private System.Windows.Forms.Label IsFilledLabel;
-        private System.Windows.Forms.Label ShapeColorLabel;
-        private System.Windows.Forms.Label YvalueLabel;
-        private System.Windows.Forms.Label XvalueLabel;
+        private System.Windows.Forms.TextBox yValueTextBox;
+        private System.Windows.Forms.TextBox xValueTextBox;
+        private System.Windows.Forms.ComboBox shapeColorComboBox;
+        private System.Windows.Forms.Label isFilledLabel;
+        private System.Windows.Forms.Label shapeColorLabel;
+        private System.Windows.Forms.Label yValueLabel;
+        private System.Windows.Forms.Label xValueLabel;
     }
 }

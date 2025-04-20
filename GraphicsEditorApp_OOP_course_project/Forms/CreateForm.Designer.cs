@@ -48,7 +48,6 @@
             this.createButton = new System.Windows.Forms.Button();
             this.isFilledCheckBox = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,7 +155,6 @@
             this.shapeColorComboBox.Size = new System.Drawing.Size(242, 35);
             this.shapeColorComboBox.TabIndex = 4;
             this.shapeColorComboBox.Visible = false;
-            this.shapeColorComboBox.Leave += new System.EventHandler(this.shapeColorComboBox_Leave);
             // 
             // xValueTextBox
             // 
@@ -165,7 +163,6 @@
             this.xValueTextBox.Size = new System.Drawing.Size(242, 41);
             this.xValueTextBox.TabIndex = 2;
             this.xValueTextBox.Visible = false;
-            this.xValueTextBox.Leave += new System.EventHandler(this.xValueTextBox_Leave);
             // 
             // yValueTextBox
             // 
@@ -174,7 +171,7 @@
             this.yValueTextBox.Size = new System.Drawing.Size(242, 41);
             this.yValueTextBox.TabIndex = 3;
             this.yValueTextBox.Visible = false;
-            this.yValueTextBox.Leave += new System.EventHandler(this.yValueTextBox_Leave);
+ 
             // 
             // aLabel
             // 
@@ -194,7 +191,6 @@
             this.aTextBox.Size = new System.Drawing.Size(242, 41);
             this.aTextBox.TabIndex = 6;
             this.aTextBox.Visible = false;
-            this.aTextBox.Leave += new System.EventHandler(this.aTextBox_Leave);
             // 
             // bTextBox
             // 
@@ -203,7 +199,6 @@
             this.bTextBox.Size = new System.Drawing.Size(242, 41);
             this.bTextBox.TabIndex = 7;
             this.bTextBox.Visible = false;
-            this.bTextBox.Leave += new System.EventHandler(this.bTextBox_Leave);
             // 
             // bLabel
             // 
@@ -223,7 +218,6 @@
             this.cTextBox.Size = new System.Drawing.Size(242, 41);
             this.cTextBox.TabIndex = 8;
             this.cTextBox.Visible = false;
-            this.cTextBox.Leave += new System.EventHandler(this.cTextBox_Leave);
             // 
             // cLabel
             // 
@@ -267,22 +261,12 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.progressBar1.Location = new System.Drawing.Point(478, 454);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(243, 10);
-            this.progressBar1.TabIndex = 19;
-            this.progressBar1.Visible = false;
-            // 
             // CreateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(774, 501);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.isFilledCheckBox);
             this.Controls.Add(this.createButton);
@@ -335,7 +319,6 @@
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.CheckBox isFilledCheckBox;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

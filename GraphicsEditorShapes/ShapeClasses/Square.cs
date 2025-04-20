@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
-namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
+namespace GraphicsEditorShapes.ShapeClasses
 {
     public class Square : Shape
     {

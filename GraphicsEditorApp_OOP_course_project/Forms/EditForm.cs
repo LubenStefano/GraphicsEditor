@@ -1,210 +1,138 @@
-﻿using GraphicsEditorApp_OOP_course_project.ShapeClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using GraphicsEditorCore;
+using GraphicsEditorShapes.ShapeClasses;
+using GraphicsEditorApp_OOP_course_project.UIhelpers;
 
 namespace GraphicsEditorApp_OOP_course_project
 {
     public partial class EditForm : Form
     {
         private Shape _selectedShape;
-        private MainForm _shapesForm;
-        private ShapeInfoForm _shapeInfoForm;
+        private CanvasService _canvasService;
+        private Dictionary<string, Control> controls;
+        private readonly MessageHandlerHelper _messageHandlerHelper;
 
-        public EditForm(Shape selectedShape, MainForm shapesForm, ShapeInfoForm shapeInfoForm)
+        public EditForm(Shape selectedShape, CanvasService canvasService)
         {
             InitializeComponent();
             _selectedShape = selectedShape;
-            _shapesForm = shapesForm;
-            _shapeInfoForm = shapeInfoForm;
+            _canvasService = canvasService;
+            _messageHandlerHelper = new MessageHandlerHelper();
 
+            // Initialize the controls dictionary  
+            controls = new Dictionary<string, Control>
+               {
+                   { "xValueLabel", xValueLabel },
+                   { "xValueTextBox", xValueTextBox },
+                   { "yValueLabel", yValueLabel },
+                   { "yValueTextBox", yValueTextBox },
+                   { "shapeColorComboBox", shapeColorComboBox },
+                   { "shapeColorLabel", shapeColorLabel },
+                   { "isFilledCheckBox", isFilledCheckBox },
+                   { "isFilledLabel", isFilledLabel },
+                   { "aLabel", aLabel },
+                   { "aTextBox", aTextBox },
+                   { "bLabel", bLabel },
+                   { "bTextBox", bTextBox },
+                   { "cLabel", cLabel },
+                   { "cTextBox", cTextBox },
+                   { "editButton", editButton },
+               };
 
-            XvalueLabel.Visible = true;
-            XvalueTextBox.Visible = true;
-            YvalueLabel.Visible = true;
-            YvalueTextBox.Visible = true;
-            ShapeColorComboBox.Visible = true;
-            ShapeColorLabel.Visible = true;
-            IsFilledCheckBox.Visible = true;
-            IsFilledLabel.Visible = true;
+            // Configure the UI dynamically based on the selected shape  
+            ControlsHelper.ConfigureShapeUI(controls, _selectedShape.GetType().Name);
 
-            EditButton.Visible = true;
+            // Populate fields with the selected shape's data  
+            PopulateFieldsHelper.PopulateBasicControls(
+                xValueTextBox,
+                yValueTextBox,
+                shapeColorComboBox,
+                isFilledCheckBox,
+                _selectedShape
+                );
 
-            switch (_selectedShape.GetType().Name)
-            {
-                case "Square":
-                    aLabel.Text = "Side:";
-                    aLabel.Visible = true;
-                    TextBoxA.Visible = true;
-                    break;
-
-                case "Rectangle":
-                    aLabel.Text = "Width:";
-                    aLabel.Visible = true;
-                    TextBoxA.Visible = true;
-                    bLabel.Text = "Height:";
-                    bLabel.Visible = true;
-                    TextBoxB.Visible = true;
-                    break;
-
-                case "Parallelogram":
-                    aLabel.Text = "Width:";
-                    aLabel.Visible = true;
-                    TextBoxA.Visible = true;
-                    bLabel.Text = "Height:";
-                    bLabel.Visible = true;
-                    TextBoxB.Visible = true;
-                    cLabel.Text = "Angle:";
-                    cLabel.Visible = true;
-                    TextBoxC.Visible = true;
-                    break;
-
-                case "Circle":
-                    aLabel.Text = "Radius:";
-                    aLabel.Visible = true;
-                    TextBoxA.Visible = true;
-                    break;
-
-                case "Rhombus":
-                    aLabel.Text = "Side:";
-                    aLabel.Visible = true;
-                    TextBoxA.Visible = true;
-                    bLabel.Text = "Angle:";
-                    bLabel.Visible = true;
-                    TextBoxB.Visible = true;
-                    break;
-
-                case "Trapezoid":
-                    aLabel.Text = "Base 1:";
-                    aLabel.Visible = true;
-                    TextBoxA.Visible = true;
-                    bLabel.Text = "Base 2:";
-                    bLabel.Visible = true;
-                    TextBoxB.Visible = true;
-                    cLabel.Text = "Height:";
-                    cLabel.Visible = true;
-                    TextBoxC.Visible = true;
-                    break;
-
-                case "Triangle":
-                    aLabel.Text = "Base:";
-                    aLabel.Visible = true;
-                    TextBoxA.Visible = true;
-                    bLabel.Text = "Height:";
-                    bLabel.Visible = true;
-                    TextBoxB.Visible = true;
-                    break;
-            }
-
-            PopulateFields();
-        }
-
-        private void PopulateFields()
-        {
-            XvalueTextBox.Text = _selectedShape.GetX().ToString();
-            YvalueTextBox.Text = _selectedShape.GetY().ToString();
-            ShapeColorComboBox.SelectedItem = _selectedShape.GetColor().Name;
-            IsFilledCheckBox.Checked = _selectedShape.GetIsFilled();
-
-            if (_selectedShape is Square square)
-            {
-                TextBoxA.Text = square.Side.ToString();
-            }
-            else if (_selectedShape is ShapeClasses.Rectangle rectangle)
-            {
-                TextBoxA.Text = rectangle.Width.ToString();
-                TextBoxB.Text = rectangle.Height.ToString();
-            }
-            else if (_selectedShape is Circle circle)
-            {
-                TextBoxA.Text = circle.Radius.ToString();
-            }
-            else if (_selectedShape is Parallelogram parallelogram)
-            {
-                TextBoxA.Text = parallelogram.Width.ToString();
-                TextBoxB.Text = parallelogram.Height.ToString();
-                TextBoxC.Text = parallelogram.Angle.ToString();
-            }
-            else if (_selectedShape is Rhombus rhombus)
-            {
-                TextBoxA.Text = rhombus.Side.ToString();
-                TextBoxB.Text = rhombus.Angle.ToString();
-            }
-            else if (_selectedShape is Trapezoid trapezoid)
-            {
-                TextBoxA.Text = trapezoid.Base1.ToString();
-                TextBoxB.Text = trapezoid.Base2.ToString();
-                TextBoxC.Text = trapezoid.Height.ToString();
-            }
-            else if (_selectedShape is Triangle triangle)
-            {
-                TextBoxA.Text = triangle.Base.ToString();
-                TextBoxB.Text = triangle.Height.ToString();
-            }
+            PopulateFieldsHelper.PopulateShapeSpecificControls(_selectedShape, controls);
         }
 
         private void EditButton_Click(object sender, EventArgs e)
         {
             try
             {
-                // Initialize variables with default values
-                int a = 0, b = 0, c = 0;
-
-                // Validate numeric inputs
-                if (!int.TryParse(XvalueTextBox.Text, out int x) || x < 0 ||
-                    !int.TryParse(YvalueTextBox.Text, out int y) || y < 0 ||
-                    (TextBoxA.Visible && (!int.TryParse(TextBoxA.Text, out a) || a <= 0)) ||
-                    (TextBoxB.Visible && (!int.TryParse(TextBoxB.Text, out b) || b <= 0)) ||
-                    (TextBoxC.Visible && (!int.TryParse(TextBoxC.Text, out c) || c <= 0)))
+                // Collect shape data from the UI  
+                Dictionary<string, string> shapeData = new Dictionary<string, string>
+                   {
+                       { "x", xValueTextBox.Text },
+                       { "y", yValueTextBox.Text },
+                       { "color", shapeColorComboBox.SelectedItem.ToString() },
+                       { "isFilled", isFilledCheckBox.Checked.ToString() },
+                       { "a", aTextBox.Text },
+                       { "b", bTextBox.Text },
+                       { "c", cTextBox.Text }
+                   };
+                if(int.Parse(shapeData["x"]) < 0 || int.Parse(shapeData["y"]) < 0)
                 {
-                    MessageBox.Show("Please ensure all input values are valid numbers. 'x' and 'y' must be >= 0, and other values must be > 0.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    _messageHandlerHelper.ShowError("Error", "Coordinates must be non-negative.");
                     return;
                 }
+                // Update the selected shape's properties  
+                _selectedShape.EditPosition(int.Parse(shapeData["x"]), int.Parse(shapeData["y"]));
+                _selectedShape.EditColor(Color.FromName(shapeData["color"]));
+                _selectedShape.EditFill(bool.Parse(shapeData["isFilled"]));
 
-                _selectedShape.EditPosition(x, y);
-                _selectedShape.EditColor(Color.FromName(ShapeColorComboBox.SelectedItem.ToString()));
-                _selectedShape.EditFill(IsFilledCheckBox.Checked);
-
-                if (_selectedShape is Square)
+                // Update dimensions if applicable  
+                if (_selectedShape is Square || _selectedShape is Circle)
                 {
+                    int a = int.Parse(shapeData["a"]);
+                    ValidateDimension(a);
                     _selectedShape.EditDimensions(a);
                 }
-                else if (_selectedShape is ShapeClasses.Rectangle)
+                else if (_selectedShape is GraphicsEditorShapes.ShapeClasses.Rectangle || _selectedShape is Triangle)
                 {
+                    int a = int.Parse(shapeData["a"]);
+                    int b = int.Parse(shapeData["b"]);
+                    ValidateDimension(a, b);
                     _selectedShape.EditDimensions(a, b);
                 }
-                else if (_selectedShape is Circle)
+                else if (_selectedShape is Parallelogram || _selectedShape is Trapezoid)
                 {
-                    _selectedShape.EditDimensions(a);
-                }
-                else if (_selectedShape is Parallelogram)
-                {
+                    int a = int.Parse(shapeData["a"]);
+                    int b = int.Parse(shapeData["b"]);
+                    int c = int.Parse(shapeData["c"]);
+                    ValidateDimension(a, b, c);
                     _selectedShape.EditDimensions(a, b, c);
                 }
                 else if (_selectedShape is Rhombus)
                 {
+                    int a = int.Parse(shapeData["a"]);
+                    int b = int.Parse(shapeData["b"]);
+                    ValidateDimension(a, b);
                     _selectedShape.EditDimensions(a, b);
                 }
-                else if (_selectedShape is Trapezoid)
+            }
+            catch (FormatException ex)
+            {
+                _messageHandlerHelper.ShowError("Error", "Invalid input format. Please enter valid numbers.");
+            }
+        }
+
+        private void ValidateDimension(params int[] dimensions)
+        {
+            try
+            {
+                foreach (var dimension in dimensions)
                 {
-                    _selectedShape.EditDimensions(a, b, c);
-                }
-                else if (_selectedShape is Triangle)
-                {
-                    _selectedShape.EditDimensions(a, b);
+                    if (dimension <= 0)
+                    {
+                        _messageHandlerHelper.ShowError("Error", "Dimensions must be non-negative.");
+                        throw new ArgumentException("Dimensions must be non-negative.");
+                    }
                 }
 
-                // Ensure ShapesForm is refreshed
-                if (_shapesForm != null)
-                {
-                    _shapesForm.RefreshShapes(); // Trigger a repaint of panel1
-                }
-                if (_shapeInfoForm != null)
-                {
-                    _shapeInfoForm.PopulateFields(); // Refresh the ShapeInfoForm fields
-                    _shapeInfoForm.RefreshShapePanel(); // Trigger a repaint of the shapePanel
-                }
+                // Refresh the canvas
+                _canvasService.InvalidateCanvas();
 
                 this.DialogResult = DialogResult.OK; // Indicate successful edit
                 this.Close();

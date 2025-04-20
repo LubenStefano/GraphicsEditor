@@ -1,6 +1,6 @@
 using System.Drawing;
 
-namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
+namespace GraphicsEditorShapes.ShapeClasses
 {
     public class BitmapShape : Shape
     {

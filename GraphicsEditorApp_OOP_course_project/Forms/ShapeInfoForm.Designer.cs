@@ -34,11 +34,11 @@
             this.editButton = new System.Windows.Forms.Button();
             this.areaLabel = new System.Windows.Forms.Label();
             this.coordinatesLabel = new System.Windows.Forms.Label();
-            this.colorLabel = new System.Windows.Forms.Label();
-            this.colorFillLabel = new System.Windows.Forms.Label();
+            this.shapeColorLabel = new System.Windows.Forms.Label();
+            this.isFilledLabel = new System.Windows.Forms.Label();
             this.sizesLabel = new System.Windows.Forms.Label();
-            this.filledColorCheckBox = new System.Windows.Forms.CheckBox();
-            this.colorTextBox = new System.Windows.Forms.TextBox();
+            this.isFilledCheckBox = new System.Windows.Forms.CheckBox();
+            this.shapeColorTextBox = new System.Windows.Forms.TextBox();
             this.coordinatesTextBox = new System.Windows.Forms.TextBox();
             this.areaTextBox = new System.Windows.Forms.TextBox();
             this.aTextBox = new System.Windows.Forms.TextBox();
@@ -60,6 +60,7 @@
             this.shapePanel.Name = "shapePanel";
             this.shapePanel.Size = new System.Drawing.Size(341, 411);
             this.shapePanel.TabIndex = 0;
+            this.shapePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.shapePanel_Paint);
             // 
             // shapeInfoLabel
             // 
@@ -104,27 +105,27 @@
             this.coordinatesLabel.TabIndex = 20;
             this.coordinatesLabel.Text = "Shape coordinates:";
             // 
-            // colorLabel
+            // shapeColorLabel
             // 
-            this.colorLabel.AutoSize = true;
-            this.colorLabel.Enabled = false;
-            this.colorLabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colorLabel.Location = new System.Drawing.Point(398, 243);
-            this.colorLabel.Name = "colorLabel";
-            this.colorLabel.Size = new System.Drawing.Size(122, 25);
-            this.colorLabel.TabIndex = 21;
-            this.colorLabel.Text = "Shape color:";
+            this.shapeColorLabel.AutoSize = true;
+            this.shapeColorLabel.Enabled = false;
+            this.shapeColorLabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shapeColorLabel.Location = new System.Drawing.Point(398, 243);
+            this.shapeColorLabel.Name = "shapeColorLabel";
+            this.shapeColorLabel.Size = new System.Drawing.Size(122, 25);
+            this.shapeColorLabel.TabIndex = 21;
+            this.shapeColorLabel.Text = "Shape color:";
             // 
-            // colorFillLabel
+            // isFilledLabel
             // 
-            this.colorFillLabel.AutoSize = true;
-            this.colorFillLabel.Enabled = false;
-            this.colorFillLabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colorFillLabel.Location = new System.Drawing.Point(398, 320);
-            this.colorFillLabel.Name = "colorFillLabel";
-            this.colorFillLabel.Size = new System.Drawing.Size(149, 25);
-            this.colorFillLabel.TabIndex = 22;
-            this.colorFillLabel.Text = "Shape color fill:";
+            this.isFilledLabel.AutoSize = true;
+            this.isFilledLabel.Enabled = false;
+            this.isFilledLabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isFilledLabel.Location = new System.Drawing.Point(398, 320);
+            this.isFilledLabel.Name = "isFilledLabel";
+            this.isFilledLabel.Size = new System.Drawing.Size(149, 25);
+            this.isFilledLabel.TabIndex = 22;
+            this.isFilledLabel.Text = "Shape color fill:";
             // 
             // sizesLabel
             // 
@@ -138,26 +139,26 @@
             this.sizesLabel.Text = "Shape sizes:";
             this.sizesLabel.Visible = false;
             // 
-            // filledColorCheckBox
+            // isFilledCheckBox
             // 
-            this.filledColorCheckBox.AutoSize = true;
-            this.filledColorCheckBox.Enabled = false;
-            this.filledColorCheckBox.Location = new System.Drawing.Point(402, 348);
-            this.filledColorCheckBox.Name = "filledColorCheckBox";
-            this.filledColorCheckBox.Size = new System.Drawing.Size(75, 29);
-            this.filledColorCheckBox.TabIndex = 24;
-            this.filledColorCheckBox.Text = "filled";
-            this.filledColorCheckBox.UseVisualStyleBackColor = true;
+            this.isFilledCheckBox.AutoSize = true;
+            this.isFilledCheckBox.Enabled = false;
+            this.isFilledCheckBox.Location = new System.Drawing.Point(402, 348);
+            this.isFilledCheckBox.Name = "isFilledCheckBox";
+            this.isFilledCheckBox.Size = new System.Drawing.Size(75, 29);
+            this.isFilledCheckBox.TabIndex = 24;
+            this.isFilledCheckBox.Text = "filled";
+            this.isFilledCheckBox.UseVisualStyleBackColor = true;
             // 
-            // colorTextBox
+            // shapeColorTextBox
             // 
-            this.colorTextBox.BackColor = System.Drawing.Color.White;
-            this.colorTextBox.Enabled = false;
-            this.colorTextBox.Location = new System.Drawing.Point(402, 271);
-            this.colorTextBox.Name = "colorTextBox";
-            this.colorTextBox.ReadOnly = true;
-            this.colorTextBox.Size = new System.Drawing.Size(174, 38);
-            this.colorTextBox.TabIndex = 25;
+            this.shapeColorTextBox.BackColor = System.Drawing.Color.White;
+            this.shapeColorTextBox.Enabled = false;
+            this.shapeColorTextBox.Location = new System.Drawing.Point(402, 271);
+            this.shapeColorTextBox.Name = "shapeColorTextBox";
+            this.shapeColorTextBox.ReadOnly = true;
+            this.shapeColorTextBox.Size = new System.Drawing.Size(174, 38);
+            this.shapeColorTextBox.TabIndex = 25;
             // 
             // coordinatesTextBox
             // 
@@ -292,11 +293,11 @@
             this.Controls.Add(this.aTextBox);
             this.Controls.Add(this.areaTextBox);
             this.Controls.Add(this.coordinatesTextBox);
-            this.Controls.Add(this.colorTextBox);
-            this.Controls.Add(this.filledColorCheckBox);
+            this.Controls.Add(this.shapeColorTextBox);
+            this.Controls.Add(this.isFilledCheckBox);
             this.Controls.Add(this.sizesLabel);
-            this.Controls.Add(this.colorFillLabel);
-            this.Controls.Add(this.colorLabel);
+            this.Controls.Add(this.isFilledLabel);
+            this.Controls.Add(this.shapeColorLabel);
             this.Controls.Add(this.coordinatesLabel);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.areaLabel);
@@ -320,11 +321,11 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Label areaLabel;
         private System.Windows.Forms.Label coordinatesLabel;
-        private System.Windows.Forms.Label colorLabel;
-        private System.Windows.Forms.Label colorFillLabel;
+        private System.Windows.Forms.Label shapeColorLabel;
+        private System.Windows.Forms.Label isFilledLabel;
         private System.Windows.Forms.Label sizesLabel;
-        private System.Windows.Forms.CheckBox filledColorCheckBox;
-        private System.Windows.Forms.TextBox colorTextBox;
+        private System.Windows.Forms.CheckBox isFilledCheckBox;
+        private System.Windows.Forms.TextBox shapeColorTextBox;
         private System.Windows.Forms.TextBox coordinatesTextBox;
         private System.Windows.Forms.TextBox areaTextBox;
         private System.Windows.Forms.TextBox aTextBox;

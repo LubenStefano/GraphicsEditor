@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using MathNet.Numerics;
 
 
 
-namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
+namespace GraphicsEditorShapes.ShapeClasses
 {
     public class Circle : Shape
     {
@@ -46,7 +42,7 @@ namespace GraphicsEditorApp_OOP_course_project.ShapeClasses
             int dx = point.X - (X + Radius / 2);
             int dy = point.Y - (Y + Radius / 2);
             int distanceSquared = dx * dx + dy * dy;
-            return distanceSquared <= (Radius / 2) * (Radius / 2);
+            return distanceSquared <= Radius / 2 * (Radius / 2);
         }
 
         public override void EditDimensions(params int[] dimensions)

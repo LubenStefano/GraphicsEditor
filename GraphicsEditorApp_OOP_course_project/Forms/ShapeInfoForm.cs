@@ -1,143 +1,63 @@
-﻿using GraphicsEditorApp_OOP_course_project.ShapeClasses;
+﻿using GraphicsEditorCore;
+using GraphicsEditorShapes.ShapeClasses;
+using GraphicsEditorApp_OOP_course_project.UIhelpers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GraphicsEditorApp_OOP_course_project
 {
-    public partial class ShapeInfoForm: Form
+    public partial class ShapeInfoForm : Form
     {
         private Shape _selectedShape;
-        private MainForm _shapesForm;
-        public ShapeInfoForm(Shape shape, MainForm shapesForm)
+        private CanvasService _canvasService;
+        private Dictionary<string, Control> controls;
+
+        public ShapeInfoForm(Shape shape, MainForm shapesForm, CanvasService canvasService)
         {
             InitializeComponent();
             _selectedShape = shape;
-            _shapesForm = shapesForm;
+            _canvasService = canvasService;
+
+            // Initialize the controls dictionary
+            controls = new Dictionary<string, Control>
+                {
+                    { "coordinatesTextBox", coordinatesTextBox },
+                    { "colorLabel", shapeColorLabel },
+                    { "filledColorCheckBox", isFilledCheckBox },
+                    { "colorTextBox", shapeColorTextBox },
+                    { "areaTextBox", areaTextBox },
+                    { "shapeTypeTextBox", shapeTypeTextBox },
+                    { "aLabel", aLabel },
+                    { "aTextBox", aTextBox },
+                    { "bLabel", bLabel },
+                    { "bTextBox", bTextBox },
+                    { "cLabel", cLabel },
+                    { "cTextBox", cTextBox },
+                    { "editButton", editButton },
+                    { "deleteButton", deleteButton },
+                    { "shapePanel", shapePanel }
+                };
+
+            // Configure the UI dynamically based on the selected shape
+            ControlsHelper.ConfigureShapeUI(controls, _selectedShape.GetType().Name);
+
+            // Replace this line:
+            PopulateFieldsHelper.PopulateInfoControls(
+                coordinatesTextBox,
+                shapeColorLabel,
+                isFilledCheckBox,
+                shapeColorTextBox,
+                areaTextBox,
+                shapeTypeTextBox,
+                _selectedShape
+            );
+
+            PopulateFieldsHelper.PopulateShapeSpecificControls(_selectedShape, controls);
 
             // Attach the Paint event of the shapePanel to the shapePanel_Paint method
             shapePanel.Paint += shapePanel_Paint;
-
-
-            switch (_selectedShape.GetType().Name)
-            {
-                case "Square":
-                    aLabel.Text = "Side:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    break;
-
-                case "Rectangle":
-                    aLabel.Text = "Width:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Height:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    break;
-
-                case "Parallelogram":
-                    aLabel.Text = "Width:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Height:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    cLabel.Text = "Angle:";
-                    cLabel.Visible = true;
-                    cTextBox.Visible = true;
-                    break;
-
-                case "Circle":
-                    aLabel.Text = "Radius:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    break;
-
-                case "Rhombus":
-                    aLabel.Text = "Side:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Angle:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    break;
-
-                case "Trapezoid":
-                    aLabel.Text = "Base 1:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Base 2:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    cLabel.Text = "Height:";
-                    cLabel.Visible = true;
-                    cTextBox.Visible = true;
-                    break;
-
-                case "Triangle":
-                    aLabel.Text = "Base:";
-                    aLabel.Visible = true;
-                    aTextBox.Visible = true;
-                    bLabel.Text = "Height:";
-                    bLabel.Visible = true;
-                    bTextBox.Visible = true;
-                    break;
-            }
-
-            PopulateFields();
-        }
-
-        public void PopulateFields()
-        {
-            coordinatesTextBox.Text = $"X: {_selectedShape.GetX()}, Y: {_selectedShape.GetY()}";
-            colorLabel.Text = _selectedShape.GetColor().Name;
-            filledColorCheckBox.Checked = _selectedShape.GetIsFilled();
-            colorTextBox.Text = _selectedShape.GetColor().Name;
-            areaTextBox.Text = _selectedShape.CalculateArea().ToString();  
-            shapeTypeTextBox.Text = _selectedShape.GetType().Name;
-
-            if (_selectedShape is Square square)
-            {
-                aTextBox.Text = square.Side.ToString();
-            }
-            else if (_selectedShape is ShapeClasses.Rectangle rectangle)
-            {
-                aTextBox.Text = rectangle.Width.ToString();
-                bTextBox.Text = rectangle.Height.ToString();
-            }
-            else if (_selectedShape is Circle circle)
-            {
-                aTextBox.Text = circle.Radius.ToString();
-            }
-            else if (_selectedShape is Parallelogram parallelogram)
-            {
-                aTextBox.Text = parallelogram.Width.ToString();
-                bTextBox.Text = parallelogram.Height.ToString();
-                cTextBox.Text = parallelogram.Angle.ToString();
-            }
-            else if (_selectedShape is Rhombus rhombus)
-            {
-                aTextBox.Text = rhombus.Side.ToString();
-                bTextBox.Text = rhombus.Angle.ToString();
-            }
-            else if (_selectedShape is Trapezoid trapezoid)
-            {
-                aTextBox.Text = trapezoid.Base1.ToString();
-                bTextBox.Text = trapezoid.Base2.ToString();
-                cTextBox.Text = trapezoid.Height.ToString();
-            }
-            else if (_selectedShape is Triangle triangle)
-            {
-                aTextBox.Text = triangle.Base.ToString();
-                bTextBox.Text = triangle.Height.ToString();
-            }
         }
 
         private void shapePanel_Paint(object sender, PaintEventArgs e)
@@ -153,34 +73,7 @@ namespace GraphicsEditorApp_OOP_course_project
             int panelCenterY = shapePanel.Height / 2;
 
             // Adjust the shape's position to center it in the panel
-            if (_selectedShape is Square square)
-            {
-                _selectedShape.EditPosition(panelCenterX - square.Side / 2, panelCenterY - square.Side / 2);
-            }
-            else if (_selectedShape is Circle circle)
-            {
-                _selectedShape.EditPosition(panelCenterX - circle.Radius / 2, panelCenterY - circle.Radius / 2);
-            }
-            else if (_selectedShape is ShapeClasses.Rectangle rectangle)
-            {
-                _selectedShape.EditPosition(panelCenterX - rectangle.Width / 2, panelCenterY - rectangle.Height / 2);
-            }
-            else if (_selectedShape is Triangle triangle)
-            {
-                _selectedShape.EditPosition(panelCenterX - triangle.Base / 2, panelCenterY - triangle.Height / 2);
-            }
-            else if (_selectedShape is Parallelogram parallelogram)
-            {
-                _selectedShape.EditPosition(panelCenterX - parallelogram.Width / 2, panelCenterY - parallelogram.Height / 2);
-            }
-            else if (_selectedShape is Rhombus rhombus)
-            {
-                _selectedShape.EditPosition(panelCenterX - rhombus.Side / 2, panelCenterY - rhombus.Side / 2);
-            }
-            else if (_selectedShape is Trapezoid trapezoid)
-            {
-                _selectedShape.EditPosition(panelCenterX - trapezoid.Base1 / 2, panelCenterY - trapezoid.Height / 2);
-            }
+            _selectedShape.EditPosition(panelCenterX - _selectedShape.GetX() / 2, panelCenterY - _selectedShape.GetY() / 2);
 
             // Draw the shape
             _selectedShape.Draw(g);
@@ -191,9 +84,15 @@ namespace GraphicsEditorApp_OOP_course_project
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            EditForm editForm = new EditForm(_selectedShape, _shapesForm, this);
-            editForm.ShowDialog();
-
+            using (EditForm editForm = new EditForm(_selectedShape, _canvasService))
+            {
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    // With this corrected line:
+                   
+                    RefreshShapePanel();
+                }
+            }
         }
 
         public void RefreshShapePanel()
@@ -205,11 +104,11 @@ namespace GraphicsEditorApp_OOP_course_project
         {
             if (_selectedShape != null)
             {
-                // Remove the selected shape from the MainForm's shapes list
-                _shapesForm._shapes.Remove(_selectedShape);
+                // Remove the selected shape from the CanvasService
+                _canvasService.RemoveShape(_selectedShape);
 
                 // Refresh the MainForm to reflect the changes
-                _shapesForm.RefreshShapes();
+                _canvasService.InvalidateCanvas();
 
                 // Close the ShapeInfoForm
                 this.Close();

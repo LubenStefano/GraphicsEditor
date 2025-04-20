@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.infoStatusStrip = new System.Windows.Forms.StatusStrip();
             this.mousePositionInfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.createShapeButton = new System.Windows.Forms.Button();
             this.colorButton = new System.Windows.Forms.Button();
             this.brushButton = new System.Windows.Forms.Button();
@@ -48,6 +49,9 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,9 +59,6 @@
             this.openStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsPanel = new System.Windows.Forms.Panel();
             this.colorPictureBox = new System.Windows.Forms.PictureBox();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoStatusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolsPanel.SuspendLayout();
@@ -104,12 +105,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(984, 486);
             this.panel1.TabIndex = 4;
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
             // 
             // infoStatusStrip
             // 
             this.infoStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mousePositionInfo});
+            this.mousePositionInfo,
+            this.toolStripStatusLabel});
             this.infoStatusStrip.Location = new System.Drawing.Point(0, 583);
             this.infoStatusStrip.Name = "infoStatusStrip";
             this.infoStatusStrip.Size = new System.Drawing.Size(1008, 22);
@@ -118,8 +120,14 @@
             // mousePositionInfo
             // 
             this.mousePositionInfo.Name = "mousePositionInfo";
-            this.mousePositionInfo.Size = new System.Drawing.Size(107, 17);
-            this.mousePositionInfo.Text = "mousePositionInfo";
+            this.mousePositionInfo.Size = new System.Drawing.Size(10, 17);
+            this.mousePositionInfo.Text = " ";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel.Text = " ";
             // 
             // createShapeButton
             // 
@@ -223,7 +231,7 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -233,7 +241,7 @@
             this.saveAsJSONToolStripMenuItem,
             this.saveAsToolStripMenuItem});
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsJSONToolStripMenuItem
@@ -248,7 +256,30 @@
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.saveAsToolStripMenuItem.Text = "Save as IMAGE";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsImageToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openJSONToolStripMenuItem,
+            this.openImageToolStripMenuItem});
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
+            this.openToolStripMenuItem.Text = "Open";
+            // 
+            // openJSONToolStripMenuItem
+            // 
+            this.openJSONToolStripMenuItem.Name = "openJSONToolStripMenuItem";
+            this.openJSONToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.openJSONToolStripMenuItem.Text = "Open JSON";
+            this.openJSONToolStripMenuItem.Click += new System.EventHandler(this.openJSONToolStripMenuItem_Click);
+            // 
+            // openImageToolStripMenuItem
+            // 
+            this.openImageToolStripMenuItem.Name = "openImageToolStripMenuItem";
+            this.openImageToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.openImageToolStripMenuItem.Text = "Open Image (png)";
+            this.openImageToolStripMenuItem.Click += new System.EventHandler(this.openImageToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -319,29 +350,6 @@
             this.colorPictureBox.TabIndex = 10;
             this.colorPictureBox.TabStop = false;
             // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openJSONToolStripMenuItem,
-            this.openImageToolStripMenuItem});
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.openToolStripMenuItem.Text = "Open";
-            // 
-            // openJSONToolStripMenuItem
-            // 
-            this.openJSONToolStripMenuItem.Name = "openJSONToolStripMenuItem";
-            this.openJSONToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
-            this.openJSONToolStripMenuItem.Text = "Open JSON";
-            this.openJSONToolStripMenuItem.Click += new System.EventHandler(this.openJSONToolStripMenuItem_Click);
-            // 
-            // openImageToolStripMenuItem
-            // 
-            this.openImageToolStripMenuItem.Name = "openImageToolStripMenuItem";
-            this.openImageToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
-            this.openImageToolStripMenuItem.Text = "Open Image (png)";
-            this.openImageToolStripMenuItem.Click += new System.EventHandler(this.openImageToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -402,5 +410,6 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openJSONToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
     }
 }

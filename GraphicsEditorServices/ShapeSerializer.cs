@@ -4,15 +4,15 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using GraphicsEditorApp_OOP_course_project.ShapeClasses;
+using GraphicsEditorShapes.ShapeClasses;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace GraphicsEditorApp_OOP_course_project.Services
+namespace GraphicsEditorServices
 {
-    public static class ShapeSerializer
+    public class ShapeSerializer
     {
-        public static void SaveToFile(string filePath, List<Shape> shapes)
+        public void SaveToFile(string filePath, List<Shape> shapes)
         {
             try
             {
@@ -39,20 +39,41 @@ namespace GraphicsEditorApp_OOP_course_project.Services
 
         private static object GetShapeDimensions(Shape shape)
         {
-            return shape switch
+            if (shape is Circle circle)
             {
-                Circle circle => new { Radius = circle.Radius },
-                ShapeClasses.Rectangle rectangle => new { Width = rectangle.Width, Height = rectangle.Height },
-                Triangle triangle => new { Base = triangle.Base, Height = triangle.Height },
-                Square square => new { Side = square.Side },
-                Parallelogram parallelogram => new { Width = parallelogram.Width, Height = parallelogram.Height, Angle = parallelogram.Angle },
-                Rhombus rhombus => new { Side = rhombus.Side, Angle = rhombus.Angle },
-                Trapezoid trapezoid => new { Base1 = trapezoid.Base1, Base2 = trapezoid.Base2, Height = trapezoid.Height },
-                _ => null
-            };
+                return new { circle.Radius };
+            }
+            else if (shape is GraphicsEditorShapes.ShapeClasses.Rectangle rectangle)
+            {
+                return new { rectangle.Width, rectangle.Height };
+            }
+            else if (shape is Triangle triangle)
+            {
+                return new { triangle.Base, triangle.Height };
+            }
+            else if (shape is Square square)
+            {
+                return new { square.Side };
+            }
+            else if (shape is Parallelogram parallelogram)
+            {
+                return new { parallelogram.Width, parallelogram.Height, parallelogram.Angle };
+            }
+            else if (shape is Rhombus rhombus)
+            {
+                return new {  rhombus.Side, rhombus.Angle };
+            }
+            else if (shape is Trapezoid trapezoid)
+            {
+                return new { trapezoid.Base1, trapezoid.Base2, trapezoid.Height };
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public static List<Shape> LoadFromFile(string filePath)
+        public List<Shape> LoadFromFile(string filePath)
         {
             try
             {
@@ -64,7 +85,7 @@ namespace GraphicsEditorApp_OOP_course_project.Services
                 {
                     try
                     {
-                        string type = item["Type"]?.ToString();
+                        var type = item["Type"]?.ToString();
                         int x = item["X"]?.Value<int>() ?? throw new InvalidOperationException("Missing X coordinate.");
                         int y = item["Y"]?.Value<int>() ?? throw new InvalidOperationException("Missing Y coordinate.");
                         Color color = Color.FromName(item["Color"]?.ToString() ?? "Black");
@@ -77,7 +98,7 @@ namespace GraphicsEditorApp_OOP_course_project.Services
                                 shapes.Add(new Circle(x, y, Convert.ToInt32(dimensions["Radius"] ?? throw new InvalidOperationException("Missing Radius.")), isFilled, color));
                                 break;
                             case "Rectangle":
-                                shapes.Add(new ShapeClasses.Rectangle(x, y, Convert.ToInt32(dimensions["Width"] ?? throw new InvalidOperationException("Missing Width.")),
+                                shapes.Add(new GraphicsEditorShapes.ShapeClasses.Rectangle(x, y, Convert.ToInt32(dimensions["Width"] ?? throw new InvalidOperationException("Missing Width.")),
                                                                       Convert.ToInt32(dimensions["Height"] ?? throw new InvalidOperationException("Missing Height.")), isFilled, color));
                                 break;
                             case "Triangle":
@@ -116,6 +137,45 @@ namespace GraphicsEditorApp_OOP_course_project.Services
             catch (Exception ex)
             {
                 throw new InvalidOperationException("Error loading shapes from file.", ex);
+            }
+        }
+
+        public void SavePanelToImage(string path, Bitmap bitmap)
+        {
+            try
+            {
+                string extension = Path.GetExtension(path).ToLower();
+                System.Drawing.Imaging.ImageFormat format;
+                switch (extension)
+                {
+                    case ".jpg":
+                    case ".jpeg":
+                        format = System.Drawing.Imaging.ImageFormat.Jpeg;
+                        break;
+                    case ".bmp":
+                        format = System.Drawing.Imaging.ImageFormat.Bmp;
+                        break;
+                    default:
+                        format = System.Drawing.Imaging.ImageFormat.Png;
+                        break;
+                }
+                bitmap.Save(path, format);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to save image: {ex.Message}");
+            }
+        }
+
+        public Bitmap LoadPanelFromImage(string path)
+        {
+            try
+            {
+                return new Bitmap(path);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to load image: {ex.Message}");
             }
         }
     }
