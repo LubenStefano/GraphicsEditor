@@ -20,7 +20,6 @@ namespace GraphicsEditorForms
             _selectedShape = shape;
             _canvasService = canvasService;
 
-            // Initialize the controls dictionary
             controls = new Dictionary<string, Control>
                 {
                     { "coordinatesTextBox", coordinatesTextBox },
@@ -40,10 +39,8 @@ namespace GraphicsEditorForms
                     { "shapePanel", shapePanel }
                 };
 
-            // Configure the UI dynamically based on the selected shape
             ControlsHelper.ConfigureShapeUI(controls, _selectedShape.GetType().Name);
 
-            // Replace this line:
             PopulateFieldsHelper.PopulateInfoControls(
                 coordinatesTextBox,
                 shapeColorLabel,
@@ -56,7 +53,6 @@ namespace GraphicsEditorForms
 
             PopulateFieldsHelper.PopulateShapeSpecificControls(_selectedShape, controls);
 
-            // Attach the Paint event of the shapePanel to the shapePanel_Paint method
             shapePanel.Paint += shapePanel_Paint;
         }
 
@@ -67,13 +63,10 @@ namespace GraphicsEditorForms
             int originalX = _selectedShape.GetX();
             int originalY = _selectedShape.GetY();
 
-            // Центрирай чрез помощен клас
             ShapeCenteringHelper.CenterShapeInPanel(_selectedShape, shapePanel);
 
-            // Рисувай
             _selectedShape.Draw(g);
 
-            // Възстанови оригиналните координати
             _selectedShape.EditPosition(originalX, originalY);
         }
 
@@ -83,7 +76,6 @@ namespace GraphicsEditorForms
             {
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
-                    // With this corrected line:
                    
                     RefreshShapePanel();
                 }
@@ -92,20 +84,17 @@ namespace GraphicsEditorForms
 
         public void RefreshShapePanel()
         {
-            shapePanel.Invalidate(); // Trigger a repaint of the shapePanel
+            shapePanel.Invalidate(); 
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (_selectedShape != null)
             {
-                // Remove the selected shape from the CanvasService
                 _canvasService.RemoveShape(_selectedShape);
 
-                // Refresh the MainForm to reflect the changes
                 _canvasService.InvalidateCanvas();
 
-                // Close the ShapeInfoForm
                 this.Close();
             }
         }

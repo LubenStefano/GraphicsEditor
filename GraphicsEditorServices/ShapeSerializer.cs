@@ -16,7 +16,6 @@ namespace GraphicsEditorServices
         {
             try
             {
-                // Serialize shapes to JSON including all relevant properties  
                 var shapeData = shapes.Select(shape => new
                 {
                     Type = shape.GetType().FullName.Split('.').Last(),

@@ -20,19 +20,16 @@ namespace GraphicsEditorShapes.ShapeClasses
 
         public override void Draw(Graphics g)
         {
-            // Convert angle to radians for trigonometric calculations
             double angleRadians = Angle * Math.PI / 180;
 
-            // Calculate the offset for the slanted side
             int offsetX = (int)(Height * Math.Tan(angleRadians));
 
-            // Define the four points of the parallelogram
             Point[] points = new Point[]
             {
-                    new Point(X, Y), // Top-left
-                    new Point(X + Width, Y), // Top-right
-                    new Point(X + Width + offsetX, Y + Height), // Bottom-right
-                    new Point(X + offsetX, Y + Height) // Bottom-left
+                    new Point(X, Y),
+                    new Point(X + Width, Y),
+                    new Point(X + Width + offsetX, Y + Height),
+                    new Point(X + offsetX, Y + Height)
             };
 
             if (IsFilled)

@@ -24,24 +24,20 @@ namespace GraphicsEditorForms
                           ControlStyles.UserPaint |
                           ControlStyles.OptimizedDoubleBuffer, true);
 
-            // Enable double buffering for the panel
             typeof(Panel).InvokeMember("DoubleBuffered",
                 System.Reflection.BindingFlags.SetProperty |
                 System.Reflection.BindingFlags.Instance |
                 System.Reflection.BindingFlags.NonPublic,
                 null, panel1, new object[] { true });
 
-            // Initialize services
             _toolManager = new ToolModeManager();
             _fileService = new ShapeSerializer();
             _undoRedoService = new UndoRedo();
             _canvasService = new CanvasService(panel1.Width, panel1.Height, _toolManager, _undoRedoService, _fileService, this);
             _messageHandlerHelper = new MessageHandlerHelper(toolStripStatusLabel, toolsToolStripMenuItem);
 
-            // Setup UI bindings
             colorPictureBox.BackColor = _toolManager.CurrentColor;
 
-            // Event handlers
             panel1.Paint += (s, e) => _canvasService.Render(e.Graphics);
             panel1.MouseDown += Panel1_MouseDown;
             panel1.MouseMove += Panel1_MouseMove;
@@ -51,12 +47,10 @@ namespace GraphicsEditorForms
 
         private void createShapeButton_Click(object sender, EventArgs e)
         {
-            // Open the CreateForm and pass the current MainForm instance
             using (var createForm = new CreateForm(_canvasService))
             {
-                createForm.ShowDialog(); // Show the CreateForm as a dialog
-                // Refresh the MainForm after the CreateForm is closed
-                panel1.Invalidate(); // Redraw the panel to show the new shape
+                createForm.ShowDialog();
+                panel1.Invalidate();
             }
         }
 
@@ -107,7 +101,6 @@ namespace GraphicsEditorForms
         {
             if (_toolManager.CurrentMode == ToolModeManager.ToolMode.Select)
             {
-                // Check if a shape is selected
                 Shape selectedShape = _canvasService.GetShapeAt(e.Location);
                 if (selectedShape != null)
                 {
@@ -269,7 +262,6 @@ namespace GraphicsEditorForms
         private void UpdateUIState()
         {
             panel1.Cursor = _toolManager.GetCurrentCursor();
-            // Replace the problematic code with the following:
             penButton.BackColor = _toolManager.CurrentMode == ToolModeManager.ToolMode.Pen ? Color.LightBlue : SystemColors.Control;
             eraseButton.BackColor = _toolManager.CurrentMode == ToolModeManager.ToolMode.Eraser ? Color.LightBlue : SystemColors.Control;
             selectButton.BackColor = _toolManager.CurrentMode == ToolModeManager.ToolMode.Select ? Color.LightBlue : SystemColors.Control;

@@ -24,7 +24,6 @@ namespace GraphicsEditorServices
         {
             if (!CanUndo) return null;
 
-            // Save current state to redo stack
             _redoStack.Push(new CanvasState
             {
                 Bitmap = new Bitmap(currentBitmap),
@@ -38,7 +37,6 @@ namespace GraphicsEditorServices
         {
             if (!CanRedo) return null;
 
-            // Save current state to undo stack
             _undoStack.Push(new CanvasState
             {
                 Bitmap = new Bitmap(currentBitmap),

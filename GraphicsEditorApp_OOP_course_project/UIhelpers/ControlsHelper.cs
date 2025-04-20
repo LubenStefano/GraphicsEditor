@@ -7,14 +7,12 @@ namespace GraphicsEditorForms.UIhelpers
     {
         public static void ConfigureShapeUI(Dictionary<string, Control> c, string shapeType)
         {
-            // Скрий всички контроли
             foreach (var control in c.Values)
             {
                 control.Visible = false;
                 if (control is TextBox tb) tb.Clear();
             }
 
-            // Покажи общите контроли
             Show(c, "xValueLabel", "xValueTextBox", "yValueLabel", "yValueTextBox",
                  "shapeColorComboBox", "shapeColorLabel", "isFilledCheckBox", "isFilledLabel",
                  "createButton", "progressBar1", "editButton", "deleteButton", "coordinatesTextBox",

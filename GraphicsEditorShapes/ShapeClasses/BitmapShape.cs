@@ -6,9 +6,8 @@ namespace GraphicsEditorShapes.ShapeClasses
     {
         public Bitmap Bitmap { get; private set; }
 
-        // Fix for CS1729, CS1031, and CS1001: Add required parameters to the constructor
         public BitmapShape(Bitmap bitmap, int x, int y, Color shapeColor, bool isFilled)
-            : base(x, y, isFilled, shapeColor) // Call the base class constructor
+            : base(x, y, isFilled, shapeColor) 
         {
             Bitmap = new Bitmap(bitmap);
         }

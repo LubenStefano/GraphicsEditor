@@ -22,7 +22,6 @@ namespace GraphicsEditorForms
             _canvasService = canvasService;
             _messageHandlerHelper = new MessageHandlerHelper();
 
-            // Initialize the controls dictionary  
             controls = new Dictionary<string, Control>
                {
                    { "xValueLabel", xValueLabel },
@@ -42,10 +41,8 @@ namespace GraphicsEditorForms
                    { "editButton", editButton },
                };
 
-            // Configure the UI dynamically based on the selected shape  
             ControlsHelper.ConfigureShapeUI(controls, _selectedShape.GetType().Name);
 
-            // Populate fields with the selected shape's data  
             PopulateFieldsHelper.PopulateBasicControls(
                 xValueTextBox,
                 yValueTextBox,
@@ -61,7 +58,6 @@ namespace GraphicsEditorForms
         {
             try
             {
-                // Collect shape data from the UI  
                 Dictionary<string, string> shapeData = new Dictionary<string, string>
                    {
                        { "x", xValueTextBox.Text },
@@ -76,13 +72,12 @@ namespace GraphicsEditorForms
                 {
                     _messageHandlerHelper.ShowError("Error", "Coordinates must be non-negative.");
                     return;
-                }
-                // Update the selected shape's properties  
+                } 
+
                 _selectedShape.EditPosition(int.Parse(shapeData["x"]), int.Parse(shapeData["y"]));
                 _selectedShape.EditColor(Color.FromName(shapeData["color"]));
                 _selectedShape.EditFill(bool.Parse(shapeData["isFilled"]));
 
-                // Update dimensions if applicable  
                 if (_selectedShape is Square || _selectedShape is Circle)
                 {
                     int a = int.Parse(shapeData["a"]);
@@ -134,7 +129,7 @@ namespace GraphicsEditorForms
                 // Refresh the canvas
                 _canvasService.InvalidateCanvas();
 
-                this.DialogResult = DialogResult.OK; // Indicate successful edit
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (FormatException)
