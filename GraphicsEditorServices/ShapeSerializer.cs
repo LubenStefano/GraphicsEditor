@@ -60,7 +60,7 @@ namespace GraphicsEditorServices
             }
             else if (shape is Rhombus rhombus)
             {
-                return new {  rhombus.Side, rhombus.Angle };
+                return new {  rhombus.Side};
             }
             else if (shape is Trapezoid trapezoid)
             {
@@ -113,8 +113,7 @@ namespace GraphicsEditorServices
                                                              Convert.ToDouble(dimensions["Angle"] ?? throw new InvalidOperationException("Missing Angle.")), isFilled, color));
                                 break;
                             case "Rhombus":
-                                shapes.Add(new Rhombus(x, y, Convert.ToInt32(dimensions["Side"] ?? throw new InvalidOperationException("Missing Side.")),
-                                                       Convert.ToInt32(dimensions["Angle"] ?? throw new InvalidOperationException("Missing Angle.")), isFilled, color));
+                                shapes.Add(new Rhombus(x, y, Convert.ToInt32(dimensions["Side"] ?? throw new InvalidOperationException("Missing Side.")), isFilled, color));
                                 break;
                             case "Trapezoid":
                                 shapes.Add(new Trapezoid(x, y, Convert.ToInt32(dimensions["Base1"] ?? throw new InvalidOperationException("Missing Base1.")),

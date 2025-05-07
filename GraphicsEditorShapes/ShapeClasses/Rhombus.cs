@@ -7,11 +7,9 @@ namespace GraphicsEditorShapes.ShapeClasses
     public class Rhombus : Shape
     {
         public int Side { get; private set; }
-        public int Angle { get; private set; }
-        public Rhombus(int x, int y, int side, int angle, bool isFilled, Color color) : base(x, y, isFilled, color)
+        public Rhombus(int x, int y, int side, bool isFilled, Color color) : base(x, y, isFilled, color)
         {
             Side = side;
-            Angle = angle;
         }
         
         public override void Draw(Graphics g)
@@ -36,7 +34,8 @@ namespace GraphicsEditorShapes.ShapeClasses
 
         public override double CalculateArea()
         {
-            return Side * Side * Math.Sin(Angle * Math.PI / 180);
+            double height = Side / 2.0;
+            return Side * height;
         }
 
         public override void Move(int deltaX, int deltaY)
@@ -61,15 +60,14 @@ namespace GraphicsEditorShapes.ShapeClasses
 
         public override void EditDimensions(params int[] dimensions)
         {
-            if (dimensions.Length != 2)
-                throw new ArgumentException("Rhombus requires exactly 2 dimensions: side and angle.");
+            if (dimensions.Length != 1)
+                throw new ArgumentException("Rhombus requires exactly 1 dimension: side!");
             Side = dimensions[0];
-            Angle = dimensions[1];
         }
 
         public override Shape Clone()
         {
-            return new Rhombus(X, Y, Side, Angle, IsFilled, ShapeColor);
+            return new Rhombus(X, Y, Side, IsFilled, ShapeColor);
         }
     }
 }

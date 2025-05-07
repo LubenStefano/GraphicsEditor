@@ -78,7 +78,7 @@ namespace GraphicsEditorForms
                 _selectedShape.EditColor(Color.FromName(shapeData["color"]));
                 _selectedShape.EditFill(bool.Parse(shapeData["isFilled"]));
 
-                if (_selectedShape is Square || _selectedShape is Circle)
+                if (_selectedShape is Square || _selectedShape is Circle || _selectedShape is Rhombus)
                 {
                     int a = int.Parse(shapeData["a"]);
                     ValidateDimension(a);
@@ -98,13 +98,6 @@ namespace GraphicsEditorForms
                     int c = int.Parse(shapeData["c"]);
                     ValidateDimension(a, b, c);
                     _selectedShape.EditDimensions(a, b, c);
-                }
-                else if (_selectedShape is Rhombus)
-                {
-                    int a = int.Parse(shapeData["a"]);
-                    int b = int.Parse(shapeData["b"]);
-                    ValidateDimension(a, b);
-                    _selectedShape.EditDimensions(a, b);
                 }
             }
             catch (FormatException)

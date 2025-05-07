@@ -61,9 +61,8 @@ namespace GraphicsEditorForms.UIhelpers
                 }
                 else if (shape is Rhombus rhombus)
                 {
-                    c["aTextBox"].Text = rhombus.Side.ToString();
-                    c["bTextBox"].Text = rhombus.Angle.ToString();
-                }
+                c["aTextBox"].Text = rhombus.Side.ToString();
+            }
                 else if (shape is Trapezoid trapezoid)
                 {
                     c["aTextBox"].Text = trapezoid.Base1.ToString();

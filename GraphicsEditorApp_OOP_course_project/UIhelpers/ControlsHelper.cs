@@ -21,6 +21,7 @@ namespace GraphicsEditorForms.UIhelpers
             switch (shapeType)
             {
                 case "Square":
+                case "Rhombus":
                     SetLabel(c["aLabel"], "Side:");
                     Show(c, "aLabel", "aTextBox");
                     break;
@@ -41,12 +42,6 @@ namespace GraphicsEditorForms.UIhelpers
                 case "Circle":
                     SetLabel(c["aLabel"], "Radius:");
                     Show(c, "aLabel", "aTextBox");
-                    break;
-
-                case "Rhombus":
-                    SetLabel(c["aLabel"], "Side:");
-                    SetLabel(c["bLabel"], "Angle:");
-                    Show(c, "aLabel", "aTextBox", "bLabel", "bTextBox");
                     break;
 
                 case "Trapezoid":

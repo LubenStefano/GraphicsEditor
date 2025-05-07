@@ -58,12 +58,7 @@ namespace GraphicsEditorShapes.ShapeCreation
                     shape = new Parallelogram(x, y, a, b, c, isFilled, color);
                     break;
                 case "Rhombus":
-                    b = int.Parse(data["b"]);
-                    if (b < 0)
-                    {
-                        throw new ShapeValidationException("Width must be non-negative.");
-                    }
-                    shape = new Rhombus(x, y, a, b, isFilled, color);
+                    shape = new Rhombus(x, y, a, isFilled, color);
                     break;
                 case "Trapezoid":
                     b = int.Parse(data["b"]);
