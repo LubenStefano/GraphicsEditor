@@ -2,6 +2,16 @@
 
 This curse project is for FPMI-ISN TU SOFIA OOP, a Windows Forms application designed to allow users to create, manipulate, and interact with different graphical shapes using object-oriented programming principles. The application provides a variety of drawing tools and supports various shapes such as circles, rectangles, triangles, trapezoids, and more. The shapes can be filled or unfilled, and their size and color can be modified.
 
+## Preview
+
+![image](https://github.com/user-attachments/assets/d2e0a2d5-8b07-426e-99c9-27e0f8c883d9)
+
+![image](https://github.com/user-attachments/assets/ba4afa6b-0bd8-4948-9874-14e74cda6fe5)
+
+![image](https://github.com/user-attachments/assets/458f304f-567b-4038-a0b7-3719edcd68ab)
+
+![image](https://github.com/user-attachments/assets/5a5f5c6d-42a6-4b16-a651-a45445d29ce4)
+
 ## Features
 
 - **Shape Creation**: Users can draw various shapes including:
