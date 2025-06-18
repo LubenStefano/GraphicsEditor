@@ -1,6 +1,6 @@
 # Graphics Editor Application - OOP Course Project
 
-This curse project is for FPMI-ISN TU SOFIA OOP, a Windows Forms application designed to allow users to create, manipulate, and interact with different graphical shapes using object-oriented programming principles. The application provides a variety of drawing tools and supports various shapes such as circles, rectangles, triangles, trapezoids, and more. The shapes can be filled or unfilled, and their size and color can be modified.
+This course project is for FPMI-ISN TU SOFIA OOP, a Windows Forms application designed to allow users to create, manipulate, and interact with different graphical shapes using object-oriented programming principles. The application provides a variety of drawing tools and supports various shapes such as circles, rectangles, triangles, trapezoids, and more. The shapes can be filled or unfilled, and their size and color can be modified.
 
 ## Preview
 
